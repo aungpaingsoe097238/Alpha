@@ -18,7 +18,7 @@
 <!--        SideBar link-->
         <div class="mt-5">
           <nav class="nav flex-column">
-            <router-link :to="{ name : 'home' }" class="nav-link nav-link-style" >
+            <router-link :to="{ name : 'home' }" class="nav-link nav-link-style">
               <i class="fas fa-home"></i>
               Home
             </router-link>
