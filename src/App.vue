@@ -1,13 +1,19 @@
 <template>
     <div class="container-fluid">
       <div class="row vh-100">
-        <div class="col-12 col-md-4 col-lg-3 d-none d-md-block">
+        <div class="col-12 col-md-4 col-lg-3 d-md-block animate__animated animate__slideInLeft"  :class="{ 'd-none': sidebar }" >
           <Sidebar></Sidebar>
         </div>
         <div class="col-12 col-md-8 col-lg-9">
           <Content></Content>
         </div>
       </div>
+      <!-- menu -->
+      <div @click="sideBarAction"  class="up nav-link d-flex justify-content-center align-items-center d-md-none">
+        <i class="fas fa-list-dots" v-if="sidebar"></i>
+        <i class="fas fa-close" v-else></i>
+      </div>
+<!--      end menu-->
     </div>
 </template>
 
@@ -15,7 +21,22 @@
 import Sidebar from "@/components/Sidebar";
 import Content from "@/components/Content";
 export default {
-  components: {Content, Sidebar}
+  components: {Content, Sidebar},
+  data() {
+    return {
+      sidebar: true,
+    }
+  },
+  methods: {
+    sideBarAction(){
+      //SideBar On Off
+      this.sidebar = !this.sidebar;
+      //SideBar Close Animate
+      if(this.sidebar === false){
+        this.closeAnimate = true;
+      }
+    },
+  },
 }
 </script>
 
@@ -25,6 +46,12 @@ export default {
     --primary-color: #4a90e2;
     --dark: #404040;
     --light: #ffff;
+  }
+
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   .user-img{
