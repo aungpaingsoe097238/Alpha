@@ -1,16 +1,63 @@
 <template>
-  <div>
-    <SideBar></SideBar>
-  </div>
+    <div class="container-fluid">
+      <div class="row vh-100">
+        <div class="col-12 col-md-4 col-lg-3 d-none d-md-block">
+          <Sidebar></Sidebar>
+        </div>
+        <div class="col-12 col-md-8 col-lg-9">
+          <Content></Content>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
-import SideBar from "@/components/SideBar";
+import Sidebar from "@/components/Sidebar";
+import Content from "@/components/Content";
 export default {
-  components: {SideBar}
+  components: {Content, Sidebar}
 }
 </script>
 
 <style lang="less">
+
+  :root {
+    --primary-color: #4a90e2;
+    --dark: #404040;
+    --light: #ffff;
+  }
+
+  .user-img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .active{
+    border-radius: 5px;
+    background-color: var(--primary-color);
+  }
+
+  .up {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    border-radius: 50%;
+    -webkit-box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
+    animation: upAnime 0.5s 1s infinite alternate;
+  }
+
+  .nav-link-style{
+    font-size: 15px;
+    color: var(--dark) !important;
+  }
 
 </style>

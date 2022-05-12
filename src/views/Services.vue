@@ -1,14 +1,14 @@
 <template>
   <div>
     <h4>
-      This is the Home Page
+      This is the Service Page
     </h4>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "Services"
 }
 </script>
 

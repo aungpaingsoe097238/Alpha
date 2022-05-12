@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/Home.vue'
+import Home from '../views/Home.vue'
+import About from "@/views/About";
+import Skill from "@/views/Skill";
+import Services from "@/views/Services";
+import Projects from "@/views/Projects";
+import Memo from "@/views/Memo";
+import Blog from "@/views/Blog";
+import Content from "@/views/Content";
 
 Vue.use(VueRouter)
 
@@ -8,13 +15,50 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: HomeView
+    component: Home
   },
+  {
+    path: '/about',
+    name: 'about',
+    component: About
+  },
+  {
+    path: '/skill',
+    name: 'skill',
+    component: Skill
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: Services
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: Projects
+  },
+  {
+    path: '/memo',
+    name: 'memo',
+    component: Memo
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: Blog
+  },
+  {
+    path: '/content',
+    name: 'content',
+    component: Content
+  }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  linkActiveClass: "active",
+  linkExactActiveClass: "exact-active",
   routes
 })
 
