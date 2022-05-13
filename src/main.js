@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'animate.css/animate.min.css'
 import { SkillBar } from 'vue-skill-bar'
 
+
 Vue.component('skill-bar', SkillBar)
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
