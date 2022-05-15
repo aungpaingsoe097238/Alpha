@@ -1,15 +1,15 @@
 <template>
     <div class="container-fluid">
-      <div class="row vh-100">
-        <div class="col-12 col-md-4 col-lg-3 d-md-block animate__animated animate__slideInLeft"  :class="{ 'd-none': sidebar }" >
+      <div class="row vh-100 justify-content-end ">
+        <div class="col-6 col-md-4 col-lg-3 z-index-2000 d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0"  :class="{ 'd-none': sidebar }" >
           <Sidebar></Sidebar>
         </div>
-        <div class="col-12 col-md-8 col-lg-9">
+        <div class="col-12 col-md-8 col-lg-9 ">
           <Content></Content>
         </div>
       </div>
       <!-- menu -->
-      <div @click="sideBarAction"  class="up nav-link d-flex justify-content-center align-items-center d-md-none">
+      <div @click="sideBarAction"  class="up nav-link d-flex justify-content-center align-items-center d-md-none z-index-2000">
         <i class="fas fa-list-dots" v-if="sidebar"></i>
         <i class="fas fa-close" v-else></i>
       </div>
@@ -85,6 +85,16 @@ export default {
   .nav-link-style{
     font-size: 15px;
     color: var(--dark) !important;
+  }
+
+  .gray-img{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+
+  .z-index-2000{
+    z-index: 2000;
+    background-color: var(--light);
   }
 
 </style>

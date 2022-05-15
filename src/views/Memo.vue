@@ -1,43 +1,47 @@
 <template>
   <div class="d-flex  justify-content-center align-items-center min-vh-100">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-md-11">
           <div>
-            <h2>Blog</h2>
+            <span class="blog-title-card">Memoary</span> <br>
+            <span class="blog-title">History is become the life of a part</span>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing
               elit. Alias amet commodi deserunt ex, facilis, impedit labore minima mollitia
               natus optio quasi quod recusandae rerum sit tenetur unde vitae. Iure, velit.
             </p>
           </div>
-          <div>
+          <div class="mt-5">
             <vueper-slides
-                class="no-shadow slide-img"
+                class="no-shadow slide-img gray-img"
                 :visible-slides="3"
                 slide-multiple
                 :gap="3"
+                fixed-height="200px"
                 :slide-ratio="1 / 4"
                 :dragging-distance="200"
-                :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }">
+                :breakpoints="{ 800: { visibleSlides: 1, slideMultiple: 1  } }">
               <vueper-slide
                   v-for="(slide, i) in slides"
                   :key="i"
                   class="slide-img"
                   :image="slide.image"
-                  @click.native="c(slide)"
+                  @click.native="modal(slide)"
               >
-                <template #content>
-                  <div class="vueperslide__content-wrapper" >
-                    <div class="vueperslide__title">{{ slide.title }}</div>
-                  </div>
-                </template>
               </vueper-slide>
             </vueper-slides>
           </div>
         </div>
       </div>
     </div>
+    <!--    Model-->
+    <b-modal id="modal-scrollable"  centered  hide-footer ref="my-modal" scrollable :title="slideDetail.title">
+      <div>
+        <img :src="slideDetail.image" class="modal-img" alt="">
+      </div>
+    </b-modal>
+    <!--    Model-->
   </div>
 </template>
 
@@ -48,6 +52,7 @@ export default {
   name: "Blog",
   components: { VueperSlides, VueperSlide },
   data: () => ({
+    slideDetail: {},
     slides: [
       {
         title: 'El Teide Volcano, Spain',
@@ -88,21 +93,23 @@ export default {
     ]
   }),
   methods: {
-    c(slide) {
+    modal(slide) {
+      // this.$refs['my-modal'].toggle('#toggle-btn');
+      // this.slideDetail = slide ;
       console.log(slide)
-    }
+    },
   },
 }
 </script>
 
-<style scoped>
+<style>
 .slide-img {
 
 }
 .slide-img .vueperslide {
   border-radius: 10px;
   transition: 0.5s;
-  object-fit: contain;
+  object-fit: cover;
 }
 .slide-img .vueperslide:hover {
   transform: scale(0.9);
@@ -112,4 +119,16 @@ export default {
   opacity: 0.5;
   color: white;
 }
+.modal-dialog {
+  max-width: 80%!important;
+  margin: 1.75rem auto;
+  border-radius: 20px;
+}
+.modal-img{
+  height: 350px;
+}
+.close{
+
+}
+
 </style>

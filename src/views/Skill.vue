@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-12">
           <div class="header">
-            <h2>What can I do?</h2>
+            <span class="blog-title-card">Skills</span> <br>
+            <span class="blog-title">What is my knowledge?</span>
             <p>
               Lorem ipsum dolor sit amet, consectetur
               adipisicing elit. Enim iure omnis optio veritatis
@@ -183,7 +184,7 @@ export default {
 
 .skills-bar .bar .info {
   margin-bottom: 8px;
-  color: #07374a;
+  color: var(--dark);
 }
 
 .skills-bar .bar .progress-line {
@@ -199,7 +200,7 @@ export default {
 
 .bar .progress-line span {
   position: absolute;
-  background: #25b79f;
+  background: var(--dark);
   height: 100%;
   border-radius: 10px;
   transform: scaleX(0);
@@ -334,12 +335,10 @@ export default {
   color: #f0f0f0;
   font-size: 12px;
   font-weight: 700;
-  background: #07374a;
+  background: var(--dark);
   padding: 1px 8px;
   border-radius: 3px;
 }
-
-
 
 
 
