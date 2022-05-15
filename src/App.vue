@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid">
       <div class="row vh-100 justify-content-end ">
-        <div class="col-6 col-md-4 col-lg-3 z-index-2000 d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0"  :class="{ 'd-none': sidebar }" >
-          <Sidebar></Sidebar>
+        <div class="col-9 col-md-4 col-lg-3 z-index-2000 d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0 rounded-0 card"  :class="{ 'd-none': sidebar }" >
+            <Sidebar></Sidebar>
         </div>
-        <div class="col-12 col-md-8 col-lg-9 ">
+        <div class="col-12 col-md-8 col-lg-9 bg">
           <Content></Content>
         </div>
       </div>
@@ -46,6 +46,8 @@ export default {
     --primary-color: #4a90e2;
     --dark: #404040;
     --light: #ffff;
+    --secondary: #767676;
+    --bg: #f9fafb;
   }
 
   *{
@@ -58,11 +60,6 @@ export default {
     width: 150px;
     height: 150px;
     object-fit: cover;
-  }
-
-  .active{
-    border-radius: 5px;
-    background-color: var(--primary-color);
   }
 
   .up {
@@ -82,8 +79,28 @@ export default {
     animation: upAnime 0.5s 1s infinite alternate;
   }
 
+  .bg {
+    background-color: var(--bg);
+  }
+
   .nav-link-style{
     font-size: 15px;
+    color: var(--secondary) !important;
+    transition: 0.5s !important;
+  }
+
+  .nav-link-style i{
+    margin-right: 10px;
+  }
+
+  .nav-link-style:hover{
+    font-size: 16px;
+    color: var(--dark) !important;
+  }
+
+  .active{
+    font-size: 15px;
+    font-weight: bolder;
     color: var(--dark) !important;
   }
 

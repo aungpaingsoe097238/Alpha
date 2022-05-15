@@ -46,25 +46,20 @@ export default {
 
 <style scoped>
 
-:root {
-  --primary-color: #4a90e2;
-  --dark: #404040;
-  --light: #ffff;
-}
-
 .content-input{
-  border-top-color: var(--light);
-  border-left-color: var(--light);
-  border-right-color: var(--light);
+  background-color: var(--bg);
+  border-top-color: var(--bg);
+  border-left-color: var(--bg);
+  border-right-color: var(--bg);
   border-bottom-color: var(--dark);
 }
 
 .form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: var(--light);
+  color: var(--dark);
+  background-color: var(--bg);
+  border-color: var(--bg);
   outline: 0;
-  box-shadow: var(--light);
+  box-shadow: var(--bg);
   border-bottom-color: var(--dark);
 }
 

@@ -352,5 +352,6 @@ export default {
   .skills-bar .bar .progress-line{
     width: 100%;
   }
+
 }
 </style>

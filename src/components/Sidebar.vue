@@ -2,22 +2,14 @@
   <div class="container">
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12">
-<!--        User Image-->
-        <div class="d-flex justify-content-center text-center">
-          <div>
-            <div>
-              <img src="../assets/user-default.png" class="img-fluid rounded-circle user-img mx-auto" alt="">
-            </div>
-            <div>
-              <span class="text-dark fw-bold">Aung Paing Soe</span>
-            </div>
-          </div>
+
+        <div class="text-center">
+          <span class="blog-title">Alpha</span>
         </div>
-<!--        End User Image-->
 
 <!--        SideBar link-->
         <div class="mt-5">
-          <nav class="nav flex-column">
+          <nav class="nav flex-column w-50 mx-auto">
             <router-link :to="{ name : 'home' }" class="nav-link nav-link-style">
               <i class="fas fa-home"></i>
               Home

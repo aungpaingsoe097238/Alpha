@@ -11,7 +11,7 @@
               <span class="home-name montserrat-font" >
                 Aung Paing Soe
               </span>
-              <p class="w-75 text-black-50 montserrat-font mt-3">
+              <p class="home-content text-black-50 montserrat-font mt-3">
                 I'm a Full-stack Web Developer with over 2 years of professional experience in this field.
               </p>
               <div>
@@ -74,6 +74,10 @@ export default {
     text-transform: uppercase;
   }
 
+  .home-content{
+    width: 80%;
+  }
+
   .social {
     width: 100%;
     float: left;
@@ -101,6 +105,17 @@ export default {
     }
     100%{
       border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .home-name{
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .home-content{
+      width: 100%;
     }
   }
 
