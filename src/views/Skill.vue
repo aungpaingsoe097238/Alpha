@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex min-vh-100 justify-content-center align-items-center">
+  <div class="d-flex min-vh-100 justify-content-center align-items-center fr">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">

@@ -1,15 +1,17 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="container-fluid">
+  <div class="d-flex justify-content-center align-items-center min-vh-100 my-5 my-md-0 fr">
+    <div class="container-fluid ">
       <div class="row">
         <div class="col-12 col-md-8">
-          <span class="blog-title-card">About</span> <br>
-          <span class="blog-title">Who am I?</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consectetur culpa
-            distinctio illo ipsam maxime obcaecati, perspiciatis
-            possimus quas quisquam repellat, ullam ut vel vero voluptatum? Esse id placeat quisquam.
-          </p>
+          <div class="">
+            <span class="blog-title-card">About</span> <br>
+            <span class="blog-title">Who am I?</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consectetur culpa
+              distinctio illo ipsam maxime obcaecati, perspiciatis
+              possimus quas quisquam repellat, ullam ut vel vero voluptatum? Esse id placeat quisquam.
+            </p>
+          </div>
           <div>
             <table class="table table-responsive table-borderless">
               <tbody>

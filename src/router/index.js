@@ -64,6 +64,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   linkActiveClass: "active",
   linkExactActiveClass: "exact-active",
+  scrollBehavior: (to, from, savedPosition) => {
+    return { x: 0, y: 0 }
+  },
   routes
 })
 

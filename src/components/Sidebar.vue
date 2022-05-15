@@ -3,43 +3,45 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12">
 
-        <div class="text-center">
-          <span class="blog-title">Alpha</span>
+        <div class="w-75 mx-auto">
+          <span class="blog-title p-3">Alpha</span>
         </div>
+
+        <div class="dropdown-divider"></div>
 
 <!--        SideBar link-->
         <div class="mt-5">
-          <nav class="nav flex-column w-50 mx-auto">
+          <nav class="nav flex-column w-75 mx-auto">
             <router-link :to="{ name : 'home' }" class="nav-link nav-link-style">
-              <i class="fas fa-home"></i>
+              <img src="../assets/img/icons/home.png"  alt="">
               Home
             </router-link>
             <router-link :to="{ name : 'about' }" class="nav-link nav-link-style">
-              <i class="fas fa-user"></i>
+              <img src="../assets/img/icons/programmer.png"  alt="">
               About
             </router-link>
             <router-link :to="{ name : 'skill' }" class="nav-link nav-link-style">
-              <i class="fas fa-list"></i>
+              <img src="../assets/img/icons/chart.png"  alt="">
               Skills
             </router-link>
             <router-link :to="{ name : 'services' }" class="nav-link nav-link-style">
-              <i class="fas fa-server"></i>
+              <img src="../assets/img/icons/customer-support.png"  alt="">
               Services
             </router-link>
             <router-link :to="{ name : 'projects' }" class="nav-link nav-link-style">
-              <i class="fas fa-archive"></i>
+              <img src="../assets/img/icons/portfolio.png"  alt="">
               Projects
             </router-link>
             <router-link :to="{ name : 'memo' }" class="nav-link nav-link-style">
-              <i class="fas fa-images"></i>
+              <img src="../assets/img/icons/gallery.png"  alt="">
               Memoary
             </router-link>
             <router-link :to="{ name : 'blog' }" class="nav-link nav-link-style">
-              <i class="fas fa-blog"></i>
+              <img src="../assets/img/icons/blogging.png"  alt="">
               Blog
             </router-link>
             <router-link :to="{ name : 'content' }" class="nav-link nav-link-style">
-              <i class="fas fa-comment"></i>
+              <img src="../assets/img/icons/contact-book.png"  alt="">
               Content
             </router-link>
           </nav>

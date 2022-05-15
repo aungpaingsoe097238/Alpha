@@ -1,13 +1,13 @@
 <template>
-  <div class="d-flex min-vh-100 justify-content-center align-items-center">
-    <div class="container-fluid">
+  <div class="d-flex min-vh-100 justify-content-center align-items-center fr">
+    <div class="container-fluid ">
       <div class="row ">
-        <div class="col-12">
-          <div class="d-flex flex-column flex-md-row justify-content-around align-items-center">
-            <div>
+        <div class="col-12 ">
+          <div class="d-flex flex-column flex-md-row justify-content-around align-items-center ">
+            <div class="fr">
               <div class="home-img"></div>
             </div>
-            <div class="m-lg-5">
+            <div class="m-lg-5 fr">
               <span class="home-name montserrat-font" >
                 Aung Paing Soe
               </span>
@@ -96,27 +96,5 @@ export default {
     height: 20px;
   }
 
-  @keyframes water {
-    0%{
-      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-    }
-    50%{
-      border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-    }
-    100%{
-      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .home-name{
-      font-size: 30px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .home-content{
-      width: 100%;
-    }
-  }
 
 </style>

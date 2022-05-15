@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style>
 
   :root {
     --primary-color: #4a90e2;
@@ -93,9 +93,16 @@ export default {
     margin-right: 10px;
   }
 
+  .nav-link-style img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
   .nav-link-style:hover{
-    font-size: 16px;
+    font-weight: bolder;
     color: var(--dark) !important;
+    letter-spacing: 2px;
   }
 
   .active{
@@ -109,9 +116,53 @@ export default {
     filter: grayscale(100%);
   }
 
+
+
   .z-index-2000{
     z-index: 2000;
     background-color: var(--light);
   }
+
+  .fr {
+    animation: fr 2s ease-in-out;
+  }
+
+  @keyframes fr {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes water {
+    0%{
+      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50%{
+      border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100%{
+      border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+  }
+
+  @media only screen and (max-width : 768px) {
+    .home-name{
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .home-content{
+      width: 100%;
+    }
+
+    .nav{
+      width: 100% !important;
+    }
+  }
+
 
 </style>

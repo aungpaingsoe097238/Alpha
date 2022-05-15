@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-5">
-    <div class="container-fluid ">
+  <div class="mt-5 ">
+    <div class="container-fluid fr">
       <div class="row">
         <div class="col-12">
           <span class="blog-title-card">Contact</span> <br>
