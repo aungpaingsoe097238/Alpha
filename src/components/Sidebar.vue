@@ -4,10 +4,11 @@
       <div class="col-12">
 
         <div class="w-75 mx-auto">
-          <span class="blog-title p-3">Alpha</span>
+          <span class="blog-title p-3">
+            <img src="../assets/alpha.png" style="max-width: 50px;" alt="">lpha</span>
         </div>
 
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider mt-3"></div>
 
 <!--        SideBar link-->
         <div class="mt-5">

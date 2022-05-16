@@ -116,7 +116,17 @@ export default {
     filter: grayscale(100%);
   }
 
-
+  .service-card{
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--secondary);
+    transition: 0.5s;
+  }
+  .service-card:hover{
+    -webkit-box-shadow: 2px 6px 11px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 6px 11px -1px rgba(0,0,0,0.75);
+    box-shadow: 2px 6px 11px -1px rgba(0,0,0,0.75);
+  }
 
   .z-index-2000{
     z-index: 2000;
@@ -149,18 +159,35 @@ export default {
     }
   }
 
+  .fr {
+    animation: fr 2s ease-in-out;
+  }
+
+
   @media only screen and (max-width : 768px) {
     .home-name{
       font-size: 30px;
       font-weight: 800;
       text-transform: uppercase;
     }
+
+
     .home-content{
       width: 100%;
     }
 
     .nav{
       width: 100% !important;
+    }
+
+    @keyframes fr {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 1;
+      }
     }
   }
 

@@ -96,5 +96,14 @@ export default {
     height: 20px;
   }
 
+  @media only screen and (max-width : 768px) {
+    .home-name {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  }
+
+
 
 </style>

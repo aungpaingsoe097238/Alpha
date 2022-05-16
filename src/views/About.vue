@@ -42,6 +42,9 @@
               </tbody>
             </table>
           </div>
+          <div>
+            <button class="btn btn-outline-dark btn-lg rounded-0">Read More</button>
+          </div>
         </div>
         <div class="col-12 col-md-4">
           <img src="../assets/img/Profile/about.jpg" class="img-fluid border-1 border-light rounded-3 gray-img" alt="">

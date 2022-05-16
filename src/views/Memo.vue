@@ -107,7 +107,7 @@ export default {
 
 }
 .slide-img .vueperslide {
-  border-radius: 10px;
+  border-radius: 5px;
   transition: 0.5s;
   object-fit: cover;
 }
@@ -127,8 +127,13 @@ export default {
 .modal-img{
   height: 350px;
 }
-.close{
-
+.vueperslides__arrows svg{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border:2px solid var(--dark);
 }
-
+.vueperslides__arrows svg:hover{
+  background-color: var(--dark);
+}
 </style>
