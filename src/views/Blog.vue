@@ -28,14 +28,20 @@
               <p>
                 {{ b.content }}
               </p>
-              <button class="btn btn-outline-dark">read more</button>
+              <b-button v-b-modal.modal-1 class="btn btn-dark rounded-0">
+                read more
+              </b-button>
             </div>
           </div>
         </div>
         <!--        Blog Image-->
-
       </div>
     </div>
+
+    <b-modal id="modal-1" size="lg" hide-header hide-footer title="BootstrapVue">
+      <p class="my-4">Hello from modal!</p>
+    </b-modal>
+
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
       <div class="row vh-100 justify-content-end ">
-        <div class="col-9 col-md-4 col-lg-3 z-index-2000 d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0 rounded-0 card"  :class="{ 'd-none': sidebar }" >
+        <div class="col-9 col-md-4 col-lg-3 z-index-1000 d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0 rounded-0 card"  :class="{ 'd-none': sidebar }" >
             <Sidebar></Sidebar>
         </div>
         <div class="col-12 col-md-8 col-lg-9 bg">

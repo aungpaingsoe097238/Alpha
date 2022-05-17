@@ -8,6 +8,7 @@ import Projects from "@/views/Projects";
 import Memo from "@/views/Memo";
 import Blog from "@/views/Blog";
 import Content from "@/views/Content";
+import template from "@/views/template";
 
 Vue.use(VueRouter)
 
@@ -56,6 +57,11 @@ const routes = [
     path: '/content',
     name: 'content',
     component: Content
+  },
+  {
+    path: '/template',
+    name: 'template',
+    component: template
   }
 ]
 

@@ -8,11 +8,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'animate.css/animate.min.css'
 import { SkillBar } from 'vue-skill-bar'
+import VueLazyLoad from 'vue-lazyload'
 
 Vue.component('skill-bar', SkillBar)
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.use(VueLazyLoad)
 
 new Vue({
   router,
