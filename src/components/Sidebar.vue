@@ -45,6 +45,10 @@
               <img src="../assets/img/icons/contact-book.png"  alt="">
               Content
             </router-link>
+            <router-link :to="{ name : 'account' }" class="nav-link nav-link-style">
+              <img src="../assets/img/icons/contact-book.png"  alt="">
+              Account
+            </router-link>
           </nav>
         </div>
 <!--        End SideBar link-->

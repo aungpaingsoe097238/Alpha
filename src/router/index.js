@@ -9,6 +9,9 @@ import Memo from "@/views/Memo";
 import Blog from "@/views/Blog";
 import Content from "@/views/Content";
 import template from "@/views/template";
+import register from "@/views/Register";
+import login from "@/views/Login";
+import account from "@/views/Account";
 
 Vue.use(VueRouter)
 
@@ -62,6 +65,27 @@ const routes = [
     path: '/template',
     name: 'template',
     component: template
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: register
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: account,
+    beforeEnter: (to, from ,next) => {
+      if(localStorage.getItem("token") ) {
+        next();
+      }
+      else next('/login');
+    },
   }
 ]
 

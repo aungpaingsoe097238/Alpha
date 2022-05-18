@@ -18,21 +18,21 @@
         </div>
         <div class="col-12 col-md-12">
           <div class="my-5">
-            <form action="">
+            <form @submit.prevent="messageUpload()">
               <div class="form-floating mb-5">
-                <input type="text" class="form-control content-input" id="floatingInput" placeholder="Name" >
+                <input type="text" class="form-control content-input" v-model="Form.name" id="floatingInput" placeholder="Name" required>
                 <label for="floatingInput">Name *</label>
               </div>
               <div class="form-floating mb-5">
-                <input type="email" class="form-control content-input" id="floatingInput" placeholder="Email">
+                <input type="email" class="form-control content-input" v-model="Form.email" id="floatingInput" placeholder="Email" required>
                 <label for="floatingInput">Email *</label>
               </div>
               <div class="form-floating mb-5">
-                <input type="text" class="form-control content-input" id="floatingInput" placeholder="Email">
+                <textarea class="form-control content-textarea" v-model="Form.desc" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
                 <label for="floatingTextarea">Comments *</label>
               </div>
               <div class="text-start">
-                <button class="btn btn-dark btn-lg">Submit</button>
+                <button class="btn btn-outline-dark btn-lg rounded-0 ">Submit</button>
               </div>
             </form>
           </div>
@@ -43,12 +43,53 @@
 </template>
 
 <script>
+import db from '../firebase';
+import {addDoc, getDocs, doc, deleteDoc, collection} from 'firebase/firestore';
 export default {
-  name: "Content"
+  name: "Content",
+  data() {
+    return {
+      Form : {
+        'name' : '',
+        'email' : '',
+        'desc' : ''
+      },
+      messages : []
+    }
+  },
+  created() {
+    this.fetchMessage();
+  },
+  methods: {
+    async fetchMessage(){
+      const messageColRef = collection(db,'messages');
+      let messageSnapShot = await getDocs(messageColRef);
+      messageSnapShot.forEach(el=>{
+        let cityData = el.data();
+        cityData.id = el.id;
+        this.messages.push(cityData);
+      });
+    },
+    async messageUpload() {
+      const messageColRef = collection(db,'messages');
+      if(this.Form.name === '' || this.Form.desc === '' || this.Form.email === '' ){
+        alert(  'record do not match' )
+      }else{
+        const addedDoc = await addDoc(messageColRef,{
+          'name' : this.Form.name,
+          'email' : this.Form.email,
+          'desc' : this.Form.desc
+        });
+        this.Form.name = '';
+        this.Form.email = '';
+        this.Form.desc = '';
+      }
+    }
+  },
 }
 </script>
 
-<style scoped>
+<style>
 
 .content-input{
   background-color: var(--bg);
@@ -58,7 +99,21 @@ export default {
   border-bottom-color: var(--dark);
 }
 
-.form-control:focus {
+.content-textarea{
+  border-color: var(--dark);
+  border-radius: 0 !important;
+  background-color: var(--bg);
+}
+
+.content-textarea:focus {
+  color: var(--dark);
+  background-color: var(--bg);
+  outline: 0;
+  box-shadow: var(--bg);
+  border-color: var(--dark);
+}
+
+.content-input:focus {
   color: var(--dark);
   background-color: var(--bg);
   border-color: var(--bg);
@@ -66,6 +121,7 @@ export default {
   box-shadow: var(--bg);
   border-bottom-color: var(--dark);
 }
+
 
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5 fr">
       <div class="row">
         <div class="col-12">
           <span class="blog-title-card">Memoary</span> <br>
@@ -18,7 +18,8 @@
               :key="imageIndex"
               @click="index = imageIndex"
               :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
-          ></div>
+          >
+          </div>
         </div>
       </div>
     </div>

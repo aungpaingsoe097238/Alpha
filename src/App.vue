@@ -137,6 +137,8 @@ export default {
     animation: fr 2s ease-in-out;
   }
 
+
+
   @keyframes fr {
     from {
       opacity: 0;
