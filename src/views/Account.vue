@@ -22,9 +22,8 @@
                            <div class="card-header">
                              <div class="d-flex justify-content-between align-items-center">
                                <span class="text-black-50">Memoary Table</span>
-                               <b-button v-b-modal.modal-memo variant="outline-dark">
-                                 <i class="fas fa-plus"></i>
-                                 Add
+                               <b-button v-b-modal.modal-memo variant="outline-secondary" @click="defaultData()" size="sm">
+                                 <i class="fas fa-plus mb-0"></i>
                                </b-button>
                              </div>
                            </div>
@@ -33,19 +32,44 @@
                                <thead>
                                <tr>
                                  <th>#</th>
-                                 <th>Name</th>
+                                 <th>Message</th>
                                  <th>Image</th>
                                  <th>Date</th>
+                                 <th>Handle</th>
                                </tr>
                                </thead>
                                <tbody>
-                               <tr>
-                                 <td>1</td>
-                                 <td>img one</td>
+                               <tr v-for="(memo,index) in memoary" :key="index">
+                                 <td>{{ index }}</td>
+                                 <td>{{ memo.message }}</td>
                                  <td>
-                                   <img src="../assets/img/tzuyu/1.jpg" class="memo-img shadow-sm rounded-2" alt="">
+                                   <img :src="memo.image" class="memo-img shadow-sm rounded-2" alt="">
                                  </td>
-                                 <td>5-3-2000</td>
+                                 <td>
+                                   {{ memo.date }}
+                                 </td>
+                                 <td>
+                                   <b-dropdown
+                                       variant="link"
+                                       no-caret>
+
+                                     <template #button-content>
+                                       <i class="fas fa-list text-dark" ></i>
+                                     </template>
+
+                                     <b-dropdown-item @click="edit(memo)">
+                                       <i class="fas fa-edit text-black-50"></i>
+                                       <span class="align-middle ml-50 text-black-50 p-2" style="font-size: 15px;" >edit</span>
+                                     </b-dropdown-item>
+
+                                     <b-dropdown-item @click="del(memo)">
+                                       <i class="fas fa-trash text-black-50"></i>
+                                       <span class="align-middle ml-50 text-black-50 p-2" style="font-size: 15px;" >delete</span>
+                                     </b-dropdown-item>
+
+                                   </b-dropdown>
+
+                                 </td>
                                </tr>
                                </tbody>
                              </table>
@@ -75,16 +99,16 @@
     </div>
 
 <!--    Modal -->
-    <b-modal id="modal-memo" centered title="Memo Create" hide-footer >
-      <form @submit.prevent="createMemo()">
+    <b-modal id="modal-memo" no-close-on-backdrop centered :title="is_edit === true ? 'Memoary Edit' : 'Memoary Create' " hide-footer >
+      <form @submit.prevent=" is_edit === true ? updatingMemoary() : createMemo()">
         <div class="input-group">
-          <input type="text" placeholder="first photo" class="form-control">
+          <input type="text" placeholder="message" v-model="memo.message" class="form-control">
         </div>
         <div class="input-group mt-3">
-          <input type="file" class="form-control">
+          <input type="file" @change="imageUpload" class="form-control">
         </div>
         <div class="input-group mt-3">
-          <button class="btn btn-outline-dark ">Create</button>
+          <button class="btn btn-outline-dark " >{{ is_edit === true ? 'Update' : 'Create' }}</button>
         </div>
       </form>
     </b-modal>
@@ -94,20 +118,178 @@
 </template>
 
 <script>
+import db from '../firebase';
+import { addDoc, getDocs, doc, deleteDoc, collection , setDoc} from 'firebase/firestore';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 export default {
   name: "Upload",
   data() {
     return {
       memo : {
         'message' : '',
-        'image' : ''
-      }
+        'image' : '',
+        'date' : ''
+      },
+      fileName : '',
+      file : '',
+      previewImage : '',
+      memoary: [],
+      is_edit: false
     }
   },
+  created() {
+    this.getMemoary();
+  },
   methods: {
+
+    // Memoary
+    imageUpload() {
+      const files = event.target.files
+      this.fileName = files[0].name
+      this.file = event.target.files[0] // upload to firebase
+      const fileReader = new FileReader()
+      fileReader.addEventListener('load', () => {
+        this.previewImage = fileReader.result
+      })
+      fileReader.readAsDataURL(files[0]);
+    },
+
     createMemo() {
-      console.log(this.memo)
+      // Create Date
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+      this.memo.date = mm + '/' + dd + '/' + yyyy;
+      // Create Date
+      this.formatImage();
+    },
+
+    uploadMemoary(){
+      // Upload To Firestore
+      const memoaryColRef = collection(db,'memoary');
+      if(this.memo.message === '' || this.memo.image === '' ){
+        alert(  'record do not match' )
+      }else{
+        const addedDoc = addDoc(memoaryColRef,{
+          'message' : this.memo.message,
+          'image' : this.memo.image,
+          'date' : this.memo.date
+        });
+        this.memo.message = '' ;
+        this.memo.image = '';
+        this.$bvModal.hide('modal-memo')
+        this.memoary = [];
+        this.getMemoary();
+      }
+      // End Upload To Firestore
+    },
+
+    async getMemoary(){
+      const memoaryColRef = collection(db,'memoary');
+      let memoarySnapShot = await getDocs(memoaryColRef);
+      let memoary = [];
+      memoarySnapShot.forEach(el => {
+        let memoaryData = el.data();
+        memoaryData.id = el.id;
+        memoary.push(memoaryData);
+      });
+      this.memoary = memoary;
+    },
+
+    async del(memo){
+      const memoaryColRef = collection(db,'memoary');
+      let mamoaryRef = doc(memoaryColRef,memo.id);
+      await deleteDoc(mamoaryRef);
+      let delMemoary = this.memoary.filter((el)=>{
+        return el.id !== memo.id ;
+      });
+      this.memoary = delMemoary;
+    },
+
+    edit(memo){
+      // Create Date
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+      this.memo.date = mm + '/' + dd + '/' + yyyy;
+      // Create Date
+
+      //Format
+      this.memo.message = memo.message;
+      this.memo.image = memo.image;
+      this.memo.id = memo.id;
+      this.$bvModal.show('modal-memo')
+      this.is_edit = true;
+      // Format
+    },
+
+    updatingMemoary(){
+      this.formatImage();
+    },
+
+    async updateMemoary(){
+      const memoaryColRef = collection(db,'memoary');
+      let memoaryRef = doc(memoaryColRef,this.memo.id);
+      const updateDoc = await setDoc(memoaryRef,{
+        'message' : this.memo.message,
+        'image' : this.memo.image,
+        'date'  : this.memo.date
+      }).then(el=>{
+        this.$bvModal.hide('modal-memo');
+        this.getMemoary();
+      })
+    },
+
+    formatImage(){
+      // Upload To Firebase Storage
+      let random = Math.random()*100000000000000000;
+      const storage = getStorage();
+      const storageRef = ref(storage, 'memoary/'+random+this.fileName);
+      const uploadTask = uploadBytesResumable(storageRef, this.file);
+      uploadTask.on('state_changed',
+          (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            switch (snapshot.state) {
+              case 'paused':
+                console.log('Upload is paused');
+                break;
+              case 'running':
+                console.log('Upload is running');
+                break;
+            }
+          },
+          (error) => {
+            // Handle unsuccessful uploads
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref)
+                .then((downloadURL) => {
+                  this.memo.image = downloadURL;
+                  if(this.is_edit === true){
+                    this.updateMemoary();
+                  }else{
+                    this.uploadMemoary();
+                  }
+                });
+          }
+      );
+      // End Upload To Firebase Storage
+    },
+
+    // End Memoary
+
+    // Default Currnt Data
+    defaultData(){
+      this.memo.message = '';
+      this.memo.image = '';
+      this.memo.date = '';
+      this.memo.id = '';
+      this.is_edit = false;
     }
+
   },
 }
 </script>

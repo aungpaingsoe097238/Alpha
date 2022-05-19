@@ -1,18 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore , collection } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyADgkGnvpKfpYlNCt6kgGP3Mow8mA7Z4qg",
-    authDomain: "portfolio-28f75.firebaseapp.com",
-    projectId: "portfolio-28f75",
-    storageBucket: "portfolio-28f75.appspot.com",
-    messagingSenderId: "237784548600",
-    appId: "1:237784548600:web:1dd9d1727a39b24278670d"
+    apiKey: "AIzaSyBPREFjkRuqrOVfT3dAX5eX6VS1aDh0aVk",
+    authDomain: "fir-vue-2b593.firebaseapp.com",
+    projectId: "fir-vue-2b593",
+    storageBucket: "fir-vue-2b593.appspot.com",
+    messagingSenderId: "391307632049",
+    appId: "1:391307632049:web:adaab34b6187ceedee7190"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const storage = getStorage(app);
 export default db;
