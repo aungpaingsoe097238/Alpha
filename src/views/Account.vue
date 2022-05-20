@@ -31,15 +31,23 @@
                        </div>
                      </div>
                 </b-tab>
+
                 <b-tab title="Contact">
-                  <b-card-text>Tab contents 2</b-card-text>
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-12 ">
+                      <Content></Content>
+                    </div>
+                  </div>
                 </b-tab>
+
                 <b-tab title="Projects">
-                  <b-card-text>Tab contents 2</b-card-text>
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-12 ">
+                      <Projects></Projects>
+                    </div>
+                  </div>
                 </b-tab>
-                <b-tab title="Skills">
-                  <b-card-text>Tab contents 2</b-card-text>
-                </b-tab>
+
               </b-tabs>
           </div>
         </div>
@@ -51,8 +59,10 @@
 <script>
 import Memoary from '../components/account/memoary.vue'
 import Blog from '../components/account/blog.vue'
+import Content from "../components/account/contact.vue";
+import Projects from "../components/account/projects.vue";
   export default{
-    components: { Memoary, Blog }
+    components: {Content, Memoary, Blog , Projects}
   }
 </script>
 

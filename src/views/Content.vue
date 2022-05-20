@@ -32,7 +32,7 @@
                 <label for="floatingTextarea">Comments *</label>
               </div>
               <div class="text-start">
-                <button class="btn btn-outline-dark btn-lg rounded-0 ">Submit</button>
+                <button class="btn btn-outline-dark btn-lg  ">Submit</button>
               </div>
             </form>
           </div>
@@ -57,6 +57,15 @@ export default {
       messages : []
     }
   },
+  computed: {
+    today() {
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, "0");
+      let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      let yyyy = today.getFullYear();
+      return mm + "/" + dd + "/" + yyyy;
+    },
+  },
   created() {
     this.fetchMessage();
   },
@@ -76,6 +85,7 @@ export default {
         alert(  'record do not match' )
       }else{
         const addedDoc = await addDoc(messageColRef,{
+          'date' : this.today,
           'name' : this.Form.name,
           'email' : this.Form.email,
           'desc' : this.Form.desc

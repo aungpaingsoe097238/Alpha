@@ -21,6 +21,10 @@
               <img src="../assets/img/icons/programmer.png"  alt="">
               About
             </router-link>
+            <router-link :to="{ name : 'account' }" class="nav-link nav-link-style">
+              <img src="../assets/img/icons/login.png"  alt="">
+              Account
+            </router-link>
             <router-link :to="{ name : 'skill' }" class="nav-link nav-link-style">
               <img src="../assets/img/icons/chart.png"  alt="">
               Skills
@@ -44,10 +48,6 @@
             <router-link :to="{ name : 'content' }" class="nav-link nav-link-style">
               <img src="../assets/img/icons/contact-book.png"  alt="">
               Content
-            </router-link>
-            <router-link :to="{ name : 'account' }" class="nav-link nav-link-style">
-              <img src="../assets/img/icons/contact-book.png"  alt="">
-              Account
             </router-link>
           </nav>
         </div>
