@@ -1,18 +1,18 @@
 <template>
   <div>
-    <div class="container-fluid mt-5">
+    <div class="mt-5">
       <div class="row">
         <div class="col-12">
           <span class="blog-title-card">Account</span> <br>
           <span class="blog-title">
-           what on your mind?
+              what on your mind?
           </span>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="mt-3">
-              <b-tabs pills fill>
+              <b-tabs pills >
 
 <!--                Memoary -->
                 <b-tab title="Memo" active>
@@ -28,7 +28,7 @@
                              </div>
                            </div>
                            <div class="card-body">
-                             <table class="table align-middle " >
+                             <table class="table align-middle table-responsive z-index-1000" >
                                <thead>
                                <tr>
                                  <th>#</th>
@@ -102,10 +102,16 @@
     <b-modal id="modal-memo" no-close-on-backdrop centered :title="is_edit === true ? 'Memoary Edit' : 'Memoary Create' " hide-footer >
       <form @submit.prevent=" is_edit === true ? updatingMemoary() : createMemo()">
         <div class="input-group">
-          <input type="text" placeholder="message" v-model="memo.message" class="form-control">
+          <input type="text" placeholder="message" v-model="memo.message" class="form-control" required>
         </div>
         <div class="input-group mt-3">
-          <input type="file" @change="imageUpload" class="form-control">
+          <div class="border border-1 border-secondary p-5 rounded-3 " v-if="previewImage === ''" @click="imageUploadUi">
+            <i class="fas fa-plus"></i>
+          </div>
+          <input type="file" id="imageUpload" @change="imageUpload" class="form-control d-none">
+        </div>
+        <div class="input-group mt-3" v-if="previewImage !== ''">
+          <img :src="previewImage" class=" img-fluid border border-1 border-light rounded-2 shadow-sm" @click="imageUploadUi" height="50px" alt="">
         </div>
         <div class="input-group mt-3">
           <button class="btn btn-outline-dark " >{{ is_edit === true ? 'Update' : 'Create' }}</button>
@@ -137,10 +143,23 @@ export default {
       is_edit: false
     }
   },
+  computed: {
+    today() {
+      let today = new Date();
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+      return mm + '/' + dd + '/' + yyyy;
+    }
+  },
   created() {
     this.getMemoary();
   },
   methods: {
+
+    imageUploadUi(){
+      document.getElementById('imageUpload').click();
+    },
 
     // Memoary
     imageUpload() {
@@ -156,11 +175,7 @@ export default {
 
     createMemo() {
       // Create Date
-      let today = new Date();
-      let dd = String(today.getDate()).padStart(2, '0');
-      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-      let yyyy = today.getFullYear();
-      this.memo.date = mm + '/' + dd + '/' + yyyy;
+      this.memo.date = this.today;
       // Create Date
       this.formatImage();
     },
@@ -209,17 +224,14 @@ export default {
 
     edit(memo){
       // Create Date
-      let today = new Date();
-      let dd = String(today.getDate()).padStart(2, '0');
-      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-      let yyyy = today.getFullYear();
-      this.memo.date = mm + '/' + dd + '/' + yyyy;
+      this.memo.date = this.today;
       // Create Date
 
       //Format
       this.memo.message = memo.message;
       this.memo.image = memo.image;
       this.memo.id = memo.id;
+      this.previewImage = memo.image;
       this.$bvModal.show('modal-memo')
       this.is_edit = true;
       // Format
@@ -287,6 +299,7 @@ export default {
       this.memo.image = '';
       this.memo.date = '';
       this.memo.id = '';
+      this.previewImage = '';
       this.is_edit = false;
     }
 

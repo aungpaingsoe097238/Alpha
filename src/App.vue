@@ -128,8 +128,8 @@ export default {
     box-shadow: 2px 6px 11px -1px rgba(0,0,0,0.75);
   }
 
-  .z-index-2000{
-    z-index: 2000;
+  .z-index-1000{
+    z-index: 1000;
     background-color: var(--light);
   }
 
@@ -137,6 +137,9 @@ export default {
     animation: fr 2s ease-in-out;
   }
 
+  .modal {
+      z-index: 3000;
+  }
 
 
   @keyframes fr {
