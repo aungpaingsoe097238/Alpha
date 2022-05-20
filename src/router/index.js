@@ -69,7 +69,13 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: register
+    component: register,
+    beforeEnter: (to, from ,next) => {
+      if(localStorage.getItem("token") ) {
+        next();
+      }
+      else next('/login');
+    },
   },
   {
     path: '/login',

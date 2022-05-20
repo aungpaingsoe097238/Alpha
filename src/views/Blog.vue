@@ -98,7 +98,6 @@ export default {
     showDetail(data){
       this.$bvModal.show('modal-blog-detail');
       this.detailData = data;
-      console.log(this.detailData)
     },
 
     resultListLimited(d){

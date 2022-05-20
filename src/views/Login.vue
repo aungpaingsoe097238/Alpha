@@ -20,7 +20,9 @@
                     Sign in
                   </button>
                   <span class="">
-                    <router-link class="nav-link" :to="{ name : 'register' }">register</router-link>
+                    <router-link class="nav-link" :to="{ name : 'register' }">
+                      I don't have a account.
+                    </router-link>
                   </span>
                 </div>
               </form>
@@ -68,7 +70,8 @@ export default {
         if (user) {
           const uid = user.uid;
           localStorage.setItem('token',uid);
-          this.$router.push('/account');
+          // this.$router.push('/account');
+          window.location.href = '/';
         } else {
           // User is signed out
           // ...

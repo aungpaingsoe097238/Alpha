@@ -49,17 +49,40 @@
               <img src="../assets/img/icons/contact-book.png"  alt="">
               Content
             </router-link>
+            <div class="dropdown-divider"></div>
+            <router-link v-if="is_user" to="#" class="nav-link nav-link-style">
+              <span class="w-100" @click="out()">
+                <img src="../assets/img/icons/logout.png"  alt="">
+                logout
+              </span>
+            </router-link>
           </nav>
         </div>
 <!--        End SideBar link-->
       </div>
     </div>
+    {{ is_user }}
   </div>
 </template>
 
 <script>
 export default {
   name: "Sidebar",
+  computed: {
+    is_user() {
+      if(localStorage.getItem('token')) {
+        return true;
+      }else{
+        return false;
+      }
+    }
+  },
+  methods: {
+    out() {
+      localStorage.clear();
+      window.location.href = '/';
+    }
+  },
 }
 </script>
 
