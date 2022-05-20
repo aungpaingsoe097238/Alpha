@@ -132,7 +132,7 @@ export default {
                 let dd = String(today.getDate()).padStart(2, "0");
                 let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
                 let yyyy = today.getFullYear();
-                return mm + "/" + dd + "/" + yyyy;
+                return mm + "-" + dd + "-" + yyyy;
             },
         },
         methods: {
@@ -152,9 +152,8 @@ export default {
             },
             formatImage() {
               // Upload To Firebase Storage
-              let random = Math.random() * 100000000000000000;
               const storage = getStorage();
-              const storageRef = ref(storage, "blog/" + random + this.fileName);
+              const storageRef = ref(storage, "blog/" + this.today + this.fileName);
               const uploadTask = uploadBytesResumable(storageRef, this.file);
               uploadTask.on("state_changed", (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;

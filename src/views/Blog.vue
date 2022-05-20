@@ -28,7 +28,7 @@
               <p class="text-black-50">
                 {{ resultListLimited(b.desc) }}
               </p>
-              <b-button variant="outline-dark">
+              <b-button variant="outline-dark"  @click="showDetail(b)">
                 <span class="fw-bold">
                    read more
                 </span>
@@ -41,8 +41,19 @@
       </div>
     </div>
 
-    <b-modal id="modal-1" size="lg" hide-header hide-footer title="BootstrapVue">
-      <p class="my-4">Hello from modal!</p>
+    <b-modal id="modal-blog-detail" no-close-on-backdrop size="xl" scrollable hide-footer :title="detailData.title">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-md-8">
+            <img :src="detailData.image" class="img-fluid w-100" alt="">
+          </div>
+          <div class="col-12 col-md-4">
+            <p>
+              {{ detailData.desc }}
+            </p>
+          </div>
+        </div>
+      </div>
     </b-modal>
 
   </div>
@@ -57,6 +68,7 @@ export default {
   data() {
     return {
       data : [],
+      detailData : ''
     }
   },
   created() {
@@ -74,6 +86,13 @@ export default {
       });
       this.data = data;
     },
+
+    showDetail(data){
+      this.$bvModal.show('modal-blog-detail');
+      this.detailData = data;
+      console.log(this.detailData)
+    },
+
     resultListLimited(d){
       return d.slice(0,200)+'...';
     }
@@ -117,6 +136,11 @@ export default {
   margin: 10px 1%;
   text-align: center;
   cursor: pointer;
+  box-shadow:
+      rgb(40, 40, 40, 0.1) 0px 2px 3px,
+      rgb(20, 20, 20, 0.2) 0px 5px 8px,
+      rgb(0, 0, 0, 0.25) 0px 10px 12px;
+  border-radius: 5px;
 }
 
 .grid figure img {

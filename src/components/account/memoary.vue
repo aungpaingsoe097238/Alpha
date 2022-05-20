@@ -71,7 +71,7 @@
     </div>
 
 <!--    Modal -->
-    <b-modal id="modal-memo" no-close-on-backdrop centered :title="is_edit === true ? 'Memoary Edit' : 'Memoary Create' " hide-footer >
+    <b-modal id="modal-memo" no-close-on-backdrop scrollable centered :title="is_edit === true ? 'Memoary Edit' : 'Memoary Create' " hide-footer >
       <form @submit.prevent=" is_edit === true ? updatingMemoary() : createMemo()">
         <div class="input-group">
           <input type="text" placeholder="message" v-model="memo.message" class="form-control" required>

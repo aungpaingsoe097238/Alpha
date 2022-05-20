@@ -162,6 +162,10 @@ export default {
     animation: fr 2s ease-in-out;
   }
 
+  .view-ani {
+    animation: view-ani 0.3s ease-in-out;
+  }
+
   .modal {
       z-index: 3000;
   }
@@ -171,6 +175,15 @@ export default {
     from {
       opacity: 0;
       transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes view-ani {
+    from {
+      opacity: 0;
     }
     to {
       opacity: 1;
@@ -201,13 +214,21 @@ export default {
       text-transform: uppercase;
     }
 
-
     .home-content{
       width: 100%;
     }
 
     .nav{
       width: 100% !important;
+    }
+
+    @keyframes view {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes fr {
