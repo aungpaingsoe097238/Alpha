@@ -106,6 +106,7 @@
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from "firebase/storage";
 import {addDoc, collection, deleteDoc, doc, getDocs, setDoc} from "firebase/firestore";
 import db from "@/firebase";
+import uniqid from 'uniqid';
 
 export default {
         data() {
@@ -153,7 +154,7 @@ export default {
             formatImage() {
               // Upload To Firebase Storage
               const storage = getStorage();
-              const storageRef = ref(storage, "blog/" + this.today + this.fileName);
+              const storageRef = ref(storage, "blog/" + uniqid() + this.fileName);
               const uploadTask = uploadBytesResumable(storageRef, this.file);
               uploadTask.on("state_changed", (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;

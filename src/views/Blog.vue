@@ -41,14 +41,22 @@
       </div>
     </div>
 
-    <b-modal id="modal-blog-detail" no-close-on-backdrop size="xl" scrollable hide-footer :title="detailData.title">
+    <b-modal id="modal-blog-detail" no-close-on-backdrop size="lg" scrollable hide-footer :title="detailData.title">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 col-md-8">
-            <img :src="detailData.image" class="img-fluid w-100" alt="">
+          <div class="col-12">
+            <i class="fas fa-calendar pe-2"></i>
+            <span class="fw-bolder">{{ detailData.date }}</span>
           </div>
-          <div class="col-12 col-md-4">
-            <p>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <img :src="detailData.image" class="img-fluid w-100 mt-3" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="mt-3 "  style="text-indent: 50px;text-align: justify ">
               {{ detailData.desc }}
             </p>
           </div>
@@ -148,6 +156,7 @@ export default {
   display: block;
   width: 100%;
   height: 300px;
+  object-fit: cover;
 }
 
 .grid figure figcaption {

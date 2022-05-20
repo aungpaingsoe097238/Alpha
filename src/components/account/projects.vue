@@ -109,6 +109,7 @@
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from "firebase/storage";
 import {addDoc, collection, deleteDoc, doc, getDocs, setDoc} from "firebase/firestore";
 import db from "@/firebase";
+import uniqid from 'uniqid';
 
 export default {
   data() {
@@ -158,7 +159,7 @@ export default {
       // Upload To Firebase Storage
       let random = Math.random() * 100000000000000000;
       const storage = getStorage();
-      const storageRef = ref(storage, "projects/" + random + this.fileName);
+      const storageRef = ref(storage, "projects/" + uniqid() + this.fileName);
       const uploadTask = uploadBytesResumable(storageRef, this.file);
       uploadTask.on("state_changed", (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
