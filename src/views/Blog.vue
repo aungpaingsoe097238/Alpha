@@ -9,27 +9,30 @@
       </div>
       <div class="row">
         <!--        Blog Image -->
-        <div class="col-12 col-md-6" v-for="(b,index) in blogData" :key="index">
-          <div class="grid">
+        <div class="col-12 col-md-6" v-for="(b,index) in data" :key="index">
+          <div class="grid d-flex flex-column">
             <figure class="effect-lily" >
-              <img :src="b.image" alt="img12"/>
+              <img :src="b.image" alt="img12" />
               <figcaption>
                 <div>
                   <h2>{{ b.title }}</h2>
-                  <p>{{ b.content }}</p>
                 </div>
               </figcaption>
             </figure>
             <div class="text-start p-3">
               <span class="text-black-50 fw-bolder">
-              {{ b.created_at }}
+                <i class="fas fa-calendar"></i>
+              {{ b.date }}
               </span>
               <div class="dropdown-divider montserrat-font" ></div>
-              <p>
-                {{ b.content }}
+              <p class="text-black-50">
+                {{ resultListLimited(b.desc) }}
               </p>
-              <b-button v-b-modal.modal-1 class="btn btn-dark rounded-0">
-                read more
+              <b-button variant="outline-dark">
+                <span class="fw-bold">
+                   read more
+                </span>
+                <i class="fas fa-arrow-right"></i>
               </b-button>
             </div>
           </div>
@@ -46,46 +49,39 @@
 </template>
 
 <script>
+import {collection, getDocs} from "firebase/firestore";
+import db from "@/firebase";
+
 export default {
   name: "Blog",
   data() {
     return {
-      blogData: [
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-      ]
+      data : [],
+    }
+  },
+  created() {
+    this.getData();
+  },
+  methods: {
+    async getData() {
+      const ColRef = collection(db, "blog");
+      let SnapShot = await getDocs(ColRef);
+      let data = [];
+      SnapShot.forEach(el => {
+        let Data = el.data();
+        Data.id = el.id;
+        data.push(Data);
+      });
+      this.data = data;
+    },
+    resultListLimited(d){
+      return d.slice(0,200)+'...';
     }
   },
 }
 </script>
 
-<style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
@@ -112,14 +108,6 @@ export default {
   font-family: 'Montserrat', sans-serif;
 }
 
-.grid {
-  position: relative;
-  margin: 0 auto;
-  padding: 1em 0 4em;
-  max-width: 1000px;
-  list-style: none;
-  text-align: center;
-}
 
 /* Common style */
 .grid figure {
@@ -127,7 +115,6 @@ export default {
   float: left;
   overflow: hidden;
   margin: 10px 1%;
-  background: #3085a3;
   text-align: center;
   cursor: pointer;
 }
@@ -135,16 +122,14 @@ export default {
 .grid figure img {
   position: relative;
   display: block;
-  min-height: 100%;
-  max-width: 100%;
-  opacity: 0.8;
+  width: 100%;
+  height: 300px;
 }
 
 .grid figure figcaption {
   padding: 2em;
-  color: #fff;
-  text-transform: uppercase;
   font-size: 1.25em;
+  color: var(--light);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -202,11 +187,12 @@ figure.effect-lily img {
   max-width: none;
   width: -webkit-calc(100% + 50px);
   width: calc(100% + 50px);
-  opacity: 0.7;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(-40px,0, 0);
-  transform: translate3d(-40px,0,0);
+  -webkit-transform: translate3d(-20px,0, 0);
+  transform: translate3d(-20px,0,0);
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }
 
 figure.effect-lily figcaption {
@@ -250,6 +236,8 @@ figure.effect-lily:hover h2,
 figure.effect-lily:hover p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
+  -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0);
 }
 
 figure.effect-lily:hover p {
@@ -258,6 +246,4 @@ figure.effect-lily:hover p {
   -webkit-transition-duration: 0.35s;
   transition-duration: 0.35s;
 }
-
-
 </style>

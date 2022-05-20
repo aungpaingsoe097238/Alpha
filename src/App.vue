@@ -48,6 +48,7 @@ export default {
     --light: #ffff;
     --secondary: #767676;
     --bg: #f9fafb;
+    --border: #cbd5e1;
   }
 
   *{
@@ -55,6 +56,30 @@ export default {
     margin: 0;
     padding: 0;
   }
+
+  .blog-title-card{
+    display: inline-block;
+    background-color: rgba(0,0,0,.04);
+    text-transform: uppercase;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0;
+    margin-bottom: 15px;
+  }
+
+  .blog-title{
+    font-weight: 800;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .montserrat-font{
+    font-family: 'Montserrat', sans-serif;
+  }
+
 
   .user-img{
     width: 150px;

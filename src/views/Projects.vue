@@ -4,124 +4,97 @@
       <div class="row">
         <div class="col-12">
           <span class="blog-title-card">Projects</span> <br>
-          <span class="blog-title">What is my creative?</span>
+          <span class="blog-title">My Creative</span>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-3">
         <!--        Blog Image -->
-        <div class="col-12 col-md-4" v-for="(b,index) in blogData" :key="index">
-          <div class="grid">
+        <div class="col-12 col-md-4" v-for="(b,index) in data" :key="index">
+          <div class="grid d-flex flex-column" >
             <figure class="effect-lily" >
-              <img :src="b.image" alt="img12"/>
+              <img :src="b.image" alt="img12" />
               <figcaption>
                 <div>
-                  <h2>{{ b.title }}</h2>
-                  <p>{{ b.content }}</p>
+                  <p class="fs-">{{ b.date }}</p>
                 </div>
               </figcaption>
             </figure>
             <div class="text-start p-3">
               <span class="text-black-50 fw-bolder">
-              {{ b.created_at }}
+                {{ b.title }}
               </span>
               <div class="dropdown-divider montserrat-font" ></div>
-              <p>
-                {{ b.content }}
+              <p class="text-black-50">
+                {{ resultListLimited(b.desc) }}
               </p>
-              <button class="btn btn-outline-dark">read more</button>
+              <a :href="b.link" target="_blank" class="btn btn-outline-dark btn-sm" >
+                <span class="fw-bold">
+                   go
+                </span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
         <!--        Blog Image-->
-
       </div>
     </div>
+
+    <b-modal id="modal-1" size="lg" hide-header hide-footer title="BootstrapVue">
+      <p class="my-4">Hello from modal!</p>
+    </b-modal>
+
   </div>
 </template>
 
 <script>
+import {collection, getDocs} from "firebase/firestore";
+import db from "@/firebase";
+
 export default {
-  name: "Blog",
+  name: "Projects",
   data() {
     return {
-      blogData: [
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-        {
-          'title' : 'Nice Lily',
-          'content' : 'Lily likes to play with crayons and pencils ',
-          'image' : 'https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg',
-          'created_at' : 'By Alex Watson05 April 2021',
-          'link' : 'https://www.google.com'
-        },
-      ]
+      data : [],
+    }
+  },
+  created() {
+    this.getData();
+  },
+  methods: {
+    async getData() {
+      const ColRef = collection(db, "projects");
+      let SnapShot = await getDocs(ColRef);
+      let data = [];
+      SnapShot.forEach(el => {
+        let Data = el.data();
+        Data.id = el.id;
+        data.push(Data);
+      });
+      this.data = data;
+    },
+    resultListLimited(d){
+      return d.slice(0,20);
     }
   },
 }
 </script>
 
-<style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-.blog-title-card{
-  display: inline-block;
-  background-color: rgba(0,0,0,.04);
-  text-transform: uppercase;
-  padding: 4px 10px;
-  font-weight: 600;
-  font-size: 15px;
-  color: #333;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0;
-  margin-bottom: 15px;
-}
-
-.blog-title{
-  font-weight: 800;
-  font-size: 30px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.montserrat-font{
-  font-family: 'Montserrat', sans-serif;
-}
-
-.grid {
-  position: relative;
-  margin: 0 auto;
-  padding: 1em 0 4em;
-  max-width: 1000px;
-  list-style: none;
-  text-align: center;
-}
-
 /* Common style */
+.grid {
+  border : 1px solid var(--border);
+  border-radius: 5px;
+}
+
 .grid figure {
   position: relative;
   float: left;
   overflow: hidden;
   margin: 10px 1%;
-  background: #3085a3;
   text-align: center;
   cursor: pointer;
 }
@@ -129,15 +102,15 @@ export default {
 .grid figure img {
   position: relative;
   display: block;
-  min-height: 100%;
-  max-width: 100%;
-  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 }
 
 .grid figure figcaption {
   padding: 2em;
   color: #fff;
-  text-transform: uppercase;
   font-size: 1.25em;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -196,11 +169,10 @@ figure.effect-lily img {
   max-width: none;
   width: -webkit-calc(100% + 50px);
   width: calc(100% + 50px);
-  opacity: 0.7;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(-40px,0, 0);
-  transform: translate3d(-40px,0,0);
+  -webkit-transform: translate3d(-20px,0, 0);
+  transform: translate3d(-20px,0,0);
 }
 
 figure.effect-lily figcaption {
@@ -228,8 +200,9 @@ figure.effect-lily h2 {
 }
 
 figure.effect-lily p {
-  color: rgba(255,255,255,0.8);
   opacity: 0;
+  color: var(--light);
+  font-weight: bolder;
   -webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
   transition: opacity 0.2s, transform 0.35s;
 }
@@ -244,6 +217,8 @@ figure.effect-lily:hover h2,
 figure.effect-lily:hover p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
+  -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0);
 }
 
 figure.effect-lily:hover p {
@@ -252,6 +227,4 @@ figure.effect-lily:hover p {
   -webkit-transition-duration: 0.35s;
   transition-duration: 0.35s;
 }
-
-
 </style>
