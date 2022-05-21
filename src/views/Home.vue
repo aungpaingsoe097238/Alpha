@@ -17,22 +17,22 @@
               <div>
                 <ul class="social mt-3">
                   <li>
-                    <a href="">
+                    <a href="https://www.facebook.com/aung.p.soe.5437" target="_blank">
                       <img src="../assets/img/icons/facebook.png"  alt="">
                     </a>
                   </li>
                   <li>
-                    <a href="">
+                    <a href="https://github.com/ALPHA-DEV-MYANMAR" target="_blank">
                       <img src="../assets/img/icons/github.png"  alt="">
                     </a>
                   </li>
                   <li>
-                    <a href="">
+                    <a href="https://www.instagram.com/aungpaingsoe532/" target="_blank">
                       <img src="../assets/img/icons/instagram.png"  alt="">
                     </a>
                   </li>
                   <li>
-                    <a href="">
+                    <a href="https://twitter.com/aungpaingsoe532" target="_blank">
                       <img src="../assets/img/icons/twitter.png"  alt="">
                     </a>
                   </li>

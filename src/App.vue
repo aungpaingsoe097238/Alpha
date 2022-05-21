@@ -93,7 +93,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--primary-color);
+    background-color: var(--bg);
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -102,6 +102,12 @@ export default {
     -moz-box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
     box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
     animation: upAnime 0.5s 1s infinite alternate;
+  }
+
+  .memo-img{
+    height: 50px;
+    object-fit: cover;
+    border: 1px solid var(--light);
   }
 
   .bg {
@@ -170,6 +176,14 @@ export default {
       z-index: 3000;
   }
 
+  .upload-img-ui img{
+    width: 100%;
+  }
+
+  .upload-img{
+    width: 50%;
+  }
+
 
   @keyframes fr {
     from {
@@ -220,6 +234,10 @@ export default {
 
     .nav{
       width: 100% !important;
+    }
+
+    .upload-img{
+      width: 100%;
     }
 
     @keyframes view {

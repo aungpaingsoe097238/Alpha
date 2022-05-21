@@ -86,17 +86,19 @@
         <div class="input-group mt-3">
           <textarea name="" id="" cols="5" rows="5" class="form-control" v-model="Form.desc" placeholder="description" required></textarea>
         </div>
-        <div class="input-group mt-3">
-          <div class="border border-1 border-secondary p-5 rounded-3 " v-if="previewImage === ''" @click="imageUploadUi">
-            <i class="fas fa-plus"></i>
+        <div class="input-group mt-3 d-flex justify-content-center align-items-center ">
+          <div class="upload-img-ui" v-if="previewImage === ''" @click="imageUploadUi">
+            <img src="../../assets/img/icons/image-default.png"  alt="">
           </div>
           <input type="file" id="imageUpload" @change="imageUpload" class="form-control d-none">
         </div>
-        <div class="input-group mt-3" v-if="previewImage !== ''">
-          <img :src="previewImage" class=" img-fluid border border-1 border-light rounded-2 shadow-sm" @click="imageUploadUi" height="50px" alt="">
+        <div class="input-group mt-3 d-flex justify-content-center align-items-center" v-if="previewImage !== ''">
+          <img :src="previewImage" class="img-fluid border border-1 border-light rounded-2 shadow-sm" @click="imageUploadUi" alt="">
         </div>
         <div class="input-group mt-3">
-          <button class="btn btn-outline-dark ">{{ is_edit === true ? 'Update' : 'Create' }}</button>
+          <button class="btn btn-outline-dark form-control btn-sm" :disabled="spinner">
+            <span v-if="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{ is_edit === true ? 'Update' : 'Create' }}</button>
         </div>
       </form>
     </b-modal>
@@ -125,7 +127,8 @@ export default {
       file : '',
       previewImage : '',
       is_edit : false,
-      data : []
+      data : [],
+      spinner : false,
     }
   },
   created() {
@@ -156,6 +159,7 @@ export default {
       fileReader.readAsDataURL(files[0]);
     },
     formatImage() {
+      this.spinner = true;
       // Upload To Firebase Storage
       let random = Math.random() * 100000000000000000;
       const storage = getStorage();
@@ -231,15 +235,25 @@ export default {
       }).then(el => {
         this.$bvModal.hide("modal-projects");
         this.getData();
+        this.spinner = false;
       });
     },
     async del(d) {
-      const ColRef = collection(db, "projects");
-      let Ref = doc(ColRef, d.id);
-      await deleteDoc(Ref);
-      this.data = this.data.filter((el) => {
-        return el.id !== d.id;
-      });
+
+      let text = "Are you sure , you want to delete.";
+      if (window.confirm(text) == true) {
+
+        const ColRef = collection(db, "projects");
+        let Ref = doc(ColRef, d.id);
+        await deleteDoc(Ref);
+        this.data = this.data.filter((el) => {
+          return el.id !== d.id;
+        });
+
+      } else {
+        return;
+      }
+
     },
     // Crud End
     // Upload To Firebase Store
@@ -251,6 +265,8 @@ export default {
         'desc'  : this.Form.desc,
         'date'  : this.Form.date,
         "link": this.Form.link,
+      }).then((el)=>{
+        this.spinner = false;
       });
       this.Form.title = "";
       this.Form.image = "";
@@ -271,6 +287,7 @@ export default {
       this.Form.id = "";
       this.previewImage = "";
       this.is_edit = false;
+      this.spinner = false;
     },
     // Default End
     resultListLimited(d){
@@ -279,7 +296,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

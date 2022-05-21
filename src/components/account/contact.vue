@@ -66,12 +66,20 @@ export default {
       console.log(this.data)
     },
     async del(d) {
-      const ColRef = collection(db, "messages");
-      let Ref = doc(ColRef, d.id);
-      await deleteDoc(Ref);
-      this.data = this.data.filter((el) => {
-        return el.id !== d.id;
-      });
+      let text = "Are you sure , you want to delete.";
+      if (window.confirm(text) == true) {
+
+        const ColRef = collection(db, "messages");
+        let Ref = doc(ColRef, d.id);
+        await deleteDoc(Ref);
+        this.data = this.data.filter((el) => {
+          return el.id !== d.id;
+        });
+
+      } else {
+        return;
+      }
+
     },
   },
 }

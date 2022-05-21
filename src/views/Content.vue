@@ -31,8 +31,11 @@
                 <textarea class="form-control content-textarea" v-model="Form.desc" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
                 <label for="floatingTextarea">Comments *</label>
               </div>
-              <div class="text-start">
-                <button class="btn btn-outline-dark btn-lg  ">Submit</button>
+              <div class="text-end">
+                <button class="btn btn-outline-dark btn-lg" :disabled="spinner">
+                  <span v-if="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Submit
+                </button>
               </div>
             </form>
           </div>
@@ -54,6 +57,7 @@ export default {
         'email' : '',
         'desc' : ''
       },
+      spinner : false,
       messages : []
     }
   },
@@ -80,6 +84,7 @@ export default {
       });
     },
     async messageUpload() {
+      this.spinner = true;
       const messageColRef = collection(db,'messages');
       if(this.Form.name === '' || this.Form.desc === '' || this.Form.email === '' ){
         alert(  'record do not match' )
@@ -90,6 +95,7 @@ export default {
           'email' : this.Form.email,
           'desc' : this.Form.desc
         });
+        this.spinner = false;
         this.Form.name = '';
         this.Form.email = '';
         this.Form.desc = '';
@@ -99,7 +105,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .content-input{
   background-color: var(--bg);
@@ -111,8 +117,9 @@ export default {
 
 .content-textarea{
   border-color: var(--dark);
-  border-radius: 0 !important;
+  border-radius: 5px !important;
   background-color: var(--bg);
+  height: 150px !important;
 }
 
 .content-textarea:focus {

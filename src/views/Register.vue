@@ -1,12 +1,19 @@
 <template>
   <div class="d-flex justify-content-center align-items-center min-vh-100">
    <div class="container-fluid">
-     <div class="row justify-content-center">
+     <div class="row">
+       <div class="col-12 col-md-6">
+         <div>
+            <span class="blog-title">
+              Register new Account
+            </span>
+           <p class="fw-bolder mt-3">
+              Admin အသစ်ထက်ထည့်ရန်။ Current Admin သာလုပ်နိုင်သည်။
+           </p>
+         </div>
+       </div>
        <div class="col-12 col-md-6">
          <div class="card">
-           <div class="card-header">
-              <span>Register User</span>
-           </div>
            <div class="card-body">
              <form @submit.prevent="signUp()">
                <div class="input-group">
@@ -19,9 +26,17 @@
                  <input type="password" placeholder="****" v-model="Form.confirm_password" class="form-control">
                </div>
                <div class="input-group mt-3">
-                 <button class="btn btn-outline-dark ">
+                 <button class="btn btn-outline-dark form-control btn-sm" :disabled="spinner">
+                   <span v-if="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                    Sign up
                  </button>
+               </div>
+               <div class="input-group mt-3">
+                  <span class="text-center w-100">
+                    <router-link class="nav-link text-dark" :to="{ name : 'login' }">
+                      go to login
+                    </router-link>
+                  </span>
                </div>
              </form>
            </div>
@@ -42,7 +57,8 @@ export default {
         'email' : '',
         'password' : '',
         'confirm_password' : ''
-      }
+      },
+      spinner : false,
     }
   },
   methods: {
@@ -50,7 +66,7 @@ export default {
       if(this.Form.password !== this.Form.confirm_password){
         console.log('not same')
       }else{
-
+        this.spinner = true;
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, this.Form.email, this.Form.password)
             .then((userCredential) => {
@@ -71,12 +87,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .form-control:focus{
     color: var(--dark);
     background-color: var(--bg);
     outline: 0;
     box-shadow: var(--bg);
     border-color: var(--dark);
+  }
+  .card{
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   }
 </style>

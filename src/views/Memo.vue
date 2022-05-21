@@ -139,10 +139,7 @@ figure {
   max-height: 16rem;
   position: relative;
   border-radius: .35rem;
-  box-shadow:
-      rgb(40, 40, 40, 0.1) 0px 2px 3px,
-      rgb(20, 20, 20, 0.2) 0px 5px 8px,
-      rgb(0, 0, 0, 0.25) 0px 10px 12px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   overflow: hidden;
   transition: transform var(--anim-time--med) ease;
 }

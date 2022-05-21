@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-12">
           <div class="mt-3">
-              <b-tabs pills >
+              <b-tabs >
 
 <!--                Memoary -->
                 <b-tab title="Memo" active>
@@ -65,5 +65,15 @@ import Projects from "../components/account/projects.vue";
     components: {Content, Memoary, Blog , Projects}
   }
 </script>
+
+<style>
+.nav-link {
+  color: var(--dark) !important;
+  transition: 0.5s;
+}
+.card{
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+</style>
 
 

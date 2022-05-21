@@ -76,17 +76,20 @@
         <div class="input-group">
           <input type="text" placeholder="message" v-model="memo.message" class="form-control" required>
         </div>
-        <div class="input-group mt-3">
-          <div class="border border-1 border-secondary p-5 rounded-3 " v-if="previewImage === ''" @click="imageUploadUi">
-            <i class="fas fa-plus"></i>
+        <div class="input-group mt-3 d-flex justify-content-center align-items-center ">
+          <div class="upload-img-ui" v-if="previewImage === ''" @click="imageUploadUi">
+            <img src="../../assets/img/icons/image-default.png"  alt="">
           </div>
           <input type="file" id="imageUpload" @change="imageUpload" class="form-control d-none">
         </div>
-        <div class="input-group mt-3" v-if="previewImage !== ''">
-          <img :src="previewImage" class=" img-fluid border border-1 border-light rounded-2 shadow-sm" @click="imageUploadUi" height="50px" alt="">
+        <div class="input-group mt-3 d-flex justify-content-center align-items-center" v-if="previewImage !== ''">
+          <img :src="previewImage" class="border border-1 border-light rounded-2 shadow-sm upload-img "  @click="imageUploadUi" alt="">
         </div>
         <div class="input-group mt-3">
-          <button class="btn btn-outline-dark " >{{ is_edit === true ? 'Update' : 'Create' }}</button>
+          <button class="btn btn-outline-dark form-control btn-sm " :disabled="spinner" >
+            <span v-if="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{ is_edit === true ? 'Update' : 'Create' }}
+          </button>
         </div>
       </form>
     </b-modal>
@@ -104,6 +107,7 @@ export default {
     name: "Upload",
     data() {
         return {
+          spinner : false,
             memo: {
                 "message": "",
                 "image": "",
@@ -166,6 +170,7 @@ export default {
                 this.$bvModal.hide("modal-memo");
                 this.memoary = [];
                 this.getMemoary();
+                this.spinner = false;
             }
             // End Upload To Firestore
         },
@@ -181,13 +186,21 @@ export default {
             this.memoary = memoary;
         },
         async del(memo) {
-            const memoaryColRef = collection(db, "memoary");
-            let mamoaryRef = doc(memoaryColRef, memo.id);
-            await deleteDoc(mamoaryRef);
-            let delMemoary = this.memoary.filter((el) => {
+
+            let text = "Are you sure , you want to delete.";
+            if (window.confirm(text) == true) {
+
+              const memoaryColRef = collection(db, "memoary");
+              let mamoaryRef = doc(memoaryColRef, memo.id);
+              await deleteDoc(mamoaryRef);
+              let delMemoary = this.memoary.filter((el) => {
                 return el.id !== memo.id;
-            });
-            this.memoary = delMemoary;
+              });
+              this.memoary = delMemoary;
+
+            } else {
+              return;
+            }
         },
         edit(memo) {
             // Create Date
@@ -215,9 +228,11 @@ export default {
             }).then(el => {
                 this.$bvModal.hide("modal-memo");
                 this.getMemoary();
+                this.spinner = false;
             });
         },
         formatImage() {
+            this.spinner = true;
             // Upload To Firebase Storage
             let random = Math.random() * 100000000000000000;
             const storage = getStorage();
@@ -259,28 +274,22 @@ export default {
             this.memo.id = "";
             this.previewImage = "";
             this.is_edit = false;
+            this.spinner = false;
         }
     },
 }
 </script>
 
-<style>
-  .memo-img{
-    height: 50px;
-    object-fit: cover;
-    border: 1px solid var(--light);
+<style scoped>
+
+.form-control:focus{
+    color: var(--dark);
+    background-color: var(--bg);
+    outline: 0;
+    box-shadow: var(--bg);
+    border-color: var(--dark);
   }
-  .close{
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border: 1px solid white;
-    transition: 0.5s;
-  }
-  .close:hover{
-    border-radius: 5px;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-  }
+
+
+
 </style>

@@ -7,9 +7,9 @@
             <span class="blog-title-card">About</span> <br>
             <span class="blog-title">Who am I?</span>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consectetur culpa
-              distinctio illo ipsam maxime obcaecati, perspiciatis
-              possimus quas quisquam repellat, ullam ut vel vero voluptatum? Esse id placeat quisquam.
+              Hi everyone.My name is Aung Paing Soe.I'm a Web Developer. I'm using the PHP &
+              Laravel Framework for Back-End Developement. HTML,CSS,JavaScript,JQuery
+              & Vue-js are using my Font-End Developement.
             </p>
           </div>
           <div>
@@ -43,11 +43,14 @@
             </table>
           </div>
           <div>
-            <button class="btn btn-outline-dark btn-lg rounded-0">Read More</button>
+            <a class="btn btn-outline-dark rounded-3" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Fcv.pdf?alt=media&token=634a7b31-0c50-40fa-af37-8e2eb7d34774" download="alpha_cv.pdf">
+              Download CV
+              <i class="fas fa-download"></i>
+            </a>
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <img src="../assets/img/Profile/about.jpg" class="img-fluid border-1 border-light rounded-3 gray-img" alt="">
+          <img src="../assets/img/Profile/about.jpg" class="img-fluid border-1 border-light rounded-3 mt-3 mt-md-0 gray-img" alt="">
         </div>
       </div>
     </div>
@@ -56,7 +59,7 @@
 
 <script>
 export default {
-  name: "About"
+  name: "About",
 }
 </script>
 

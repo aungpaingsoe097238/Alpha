@@ -22,7 +22,7 @@
                   Web Desgin
                 </span>
                 <p class="text-black-50 service-content pt-3">
-                  Web design is a similar process of creation, with the intention of presenting...
+                  Website တစ်ခု၏ အသွင်အပြင်ကို လှပစွာ ပုံဖော်နိုင်ခြင်း။
                 </p>
               </div>
             </div>
@@ -39,7 +39,7 @@
                   Web Apps
                 </span>
                 <p class="text-black-50 service-content pt-3">
-                  Web design is a similar process of creation, with the intention of presenting...
+                  Api service နှင့် server side ကိုကောင်းမွန်စွာကိုင်တွယ်နိုင်ခြင်း။
                 </p>
               </div>
             </div>
@@ -56,7 +56,7 @@
                   Responsive Ui/Ux
                 </span>
                 <p class="text-black-50 service-content pt-3">
-                  Web design is a similar process of creation, with the intention of presenting...
+                  Media Query ကို ကောင်မွန်စွာရေးသားနိုင်ခြင်း။
                 </p>
               </div>
             </div>
@@ -74,5 +74,17 @@ export default {
 </script>
 
 <style>
-
+.close{
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid white;
+  transition: 0.5s;
+}
+.close:hover{
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
 </style>
