@@ -77,6 +77,7 @@ export default {
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
+              this.spinner = false;
               console.log(errorMessage)
               alert(errorMessage)
             });

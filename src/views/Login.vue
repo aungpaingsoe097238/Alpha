@@ -82,7 +82,8 @@ export default {
             const errorCode = error.code;
             const errorMessage = error.message;
             alert(errorMessage);
-            this.password = '';
+            this.spinner = false;
+            this.Form.password = '';
           });
     },
     getUid(){
