@@ -56,6 +56,17 @@
                 logout
               </span>
             </router-link>
+            <div>
+              <p class="text-black-50 mt-3 p-2"  style=" font-style :italic">
+                @2022
+                <span class="fw-bold">Alpha</span> 
+                <br> 
+                <span style=" font-size : 15px;">
+                Created by <span class=" text-decoration-underline">Aung Paing Soe</span> 
+                </span>
+                
+              </p>
+            </div>
           </nav>
         </div>
 <!--        End SideBar link-->
