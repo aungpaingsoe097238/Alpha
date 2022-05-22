@@ -6,7 +6,7 @@
           <div class="">
             <span class="blog-title-card">About</span> <br>
             <span class="blog-title">Who am I?</span>
-            <p class="text-black-50" style="text-indent: 50px;text-align: justify ">
+            <p class="text-black-50">
               Hi everyone.My name is Aung Paing Soe.I'm a Web Developer. I'm using the PHP &
               Laravel Framework for Back-End Developement. HTML,CSS,JavaScript,JQuery
               & Vue-js are using my Font-End Developement.
@@ -45,7 +45,7 @@
           <div>
             <a class="btn btn-outline-dark rounded-3" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Fcv.pdf?alt=media&token=634a7b31-0c50-40fa-af37-8e2eb7d34774" download="alpha_cv.pdf">
               Download CV
-              <i class="fas fa-download"></i>
+              <i class="fas fa-file-pdf"></i>
             </a>
           </div>
         </div>

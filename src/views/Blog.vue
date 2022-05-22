@@ -25,7 +25,7 @@
               {{ b.date }}
               </span>
               <div class="dropdown-divider montserrat-font"></div>
-              <p class="text-black-50" style="text-indent: 50px;text-align: justify ">
+              <p class="text-black-50" style="text-indent: 50px;">
                 {{ resultListLimited(b.desc) }}
               </p>
               <b-button variant="outline-dark" size="sm"  @click="showDetail(b)">
@@ -60,7 +60,7 @@
 
             <h5 >{{ detailData.title }}</h5>
 
-            <p class="mt-3 text-black-50" style="text-indent: 50px;text-align: justify ">
+            <p class="mt-3 text-black-50" style="text-indent:50px; ">
               {{ detailData.desc }}
             </p>
 

@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="card-body overflow-auto">
-        <table class="table align-middle table-responsive z-index-1000">
+        <table class="table align-middle table-borderless table-responsive z-index-1000">
           <thead>
           <tr>
             <th>#</th>
@@ -93,7 +93,7 @@
           <input type="file" id="imageUpload" @change="imageUpload" class="form-control d-none">
         </div>
         <div class="input-group mt-3 d-flex justify-content-center align-items-center" v-if="previewImage !== ''">
-          <img :src="previewImage" class="img-fluid border border-1 border-light rounded-2 shadow-sm" @click="imageUploadUi" alt="">
+          <img :src="previewImage" class="gray-100 img-fluid border border-1 border-light rounded-2 shadow-sm" @click="imageUploadUi" alt="">
         </div>
         <div class="input-group mt-3">
           <button class="btn btn-outline-dark form-control btn-sm" :disabled="spinner">
@@ -296,3 +296,13 @@ export default {
   },
 }
 </script>
+
+<style>
+.form-control:focus{
+  color: var(--dark);
+  background-color: var(--bg);
+  outline: 0;
+  box-shadow: var(--bg);
+  border-color: var(--dark);
+}
+</style>

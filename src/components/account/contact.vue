@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="card-body overflow-auto">
-        <table class="table  table-borderless align-middle">
+        <table class="table   table-borderless align-middle">
           <thead>
             <tr>
               <th class="w-25">Info</th>

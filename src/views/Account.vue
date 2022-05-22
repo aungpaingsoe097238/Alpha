@@ -67,6 +67,7 @@ import Projects from "../components/account/projects.vue";
 </script>
 
 <style>
+
 .nav-link {
   color: var(--dark) !important;
   transition: 0.5s;

@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="card-body overflow-auto">
-          <table class="table align-middle  z-index-1000">
+          <table class="table align-middle  table-borderless   z-index-1000">
           <thead>
             <tr>
               <th>#</th>
@@ -83,7 +83,7 @@
           <input type="file" id="imageUpload" @change="imageUpload" class="form-control d-none">
         </div>
         <div class="input-group mt-3 d-flex justify-content-center align-items-center" v-if="previewImage !== ''">
-          <img :src="previewImage" class="border border-1 border-light rounded-2 shadow-sm upload-img "  @click="imageUploadUi" alt="">
+          <img :src="previewImage" class="gray-100 border border-1 border-light rounded-2 shadow-sm upload-img "  @click="imageUploadUi" alt="">
         </div>
         <div class="input-group mt-3">
           <button class="btn btn-outline-dark form-control btn-sm " :disabled="spinner" >

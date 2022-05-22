@@ -17,6 +17,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "modal-fullscreen-vue": "^0.1.4",
+    "sweetalert2": "^11.4.14",
     "swiper": "^8.1.4",
     "uniqid": "^5.4.0",
     "venobox": "^2.0.4",
