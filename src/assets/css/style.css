@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Noto+Serif+Myanmar:wght@300;400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Padauk:wght@700&display=swap');
 * {
-    font-family: 'Josefin Sans', "Noto Serif Myanmar";
+    font-family: 'Josefin Sans', 'Padauk';
 }
