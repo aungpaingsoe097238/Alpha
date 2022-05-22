@@ -6,11 +6,29 @@
           <div class="">
             <span class="blog-title-card">About</span> <br>
             <span class="blog-title">Who am I?</span>
-            <p class="text-black-50">
-              Hi everyone.My name is Aung Paing Soe.I'm a Web Developer. I'm using the PHP &
+           
+            <p class="text-black-50 mt-3">
+              <span style="font-size:15px; font-style:italic; font-weight:600; color: var(--dark)">By English</span>
+              -
+              Hi everyone.My name is Aung Paing Soe.
+              I'm 22 year old.
+              I'm a Web Developer. I'm using the PHP &
               Laravel Framework for Back-End Developement. HTML,CSS,JavaScript,JQuery
-              & Vue-js are using my Font-End Developement.
+              & Vue-js are using my Font-End Developement.Currently,I working a remote job from 
+              japan by junior web developer position.
             </p>
+
+            <p class="text-black-50">
+              <span style="font-size:15px; font-style:italic; font-weight:600; color: var(--dark)">By Myanmar</span>
+              -
+              အားလုံး မဂ်လာပါ။ကျွန်တော်ကတော့ အောင်ပိုင်စိုးဖြစ်တယ်။
+              အသက် ၂၂ ရှိပါပိ။
+              Web Developer တစ်ယောက်ဖြစ်ပါတယ်။
+              PHP နှင့် Laravel ကို Back-End Developement အတွက်အသုံးပြုပြီး HTML,CSS,JavaScript,JQuery, နှင့် Vue js 
+              ကို Font-End Developement အတွက်အသုံးပြုပါတယ်။
+              လက်ရှိမှာတော့ ဂျပန်နိုင်ငံမှ remote job တစ်ခုမှာ junior web developer ရာထူးနဲ့တာ၀န်ထန်းဆောင်နေပါတယ်။ 
+            </p>
+
           </div>
           <div>
             <table class="table table-responsive table-borderless">
@@ -21,7 +39,7 @@
               </tr>
               <tr>
                 <td class=" fw-bolder">Birthday:</td>
-                <td class="text-black-50 ">5 / 3 / 2000</td>
+                <td class="text-black-50 ">5 / March / 2000</td>
               </tr>
               <tr>
                 <td class=" fw-bolder">Age:</td>
