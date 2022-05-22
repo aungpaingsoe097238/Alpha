@@ -6,25 +6,39 @@
           <span class="text-black-50">Contact Table</span>
         </div>
       </div>
-      <div class="card-body">
-        <table class="table table-responsive align-middle">
+      <div class="card-body overflow-auto">
+        <table class="table  table-borderless align-middle">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
-              <th>Handle</th>
+              <th class="w-25">Info</th>
+              <th class="w-50">Message</th>
+              <th class="w-25">Handle</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(d,index) in data" :key="index">
-              <td>{{ index }}</td>
-              <td>{{ d.date }}</td>
-              <td>{{ d.name }}</td>
-              <td>{{ d.email }}</td>
-              <td>{{ d.desc }}</td>
+              <td>
+                <div>
+                  <span>
+                    <i class="fas fa-calendar-alt"></i>
+                    {{ d.date }}</span>
+                  <br>
+                  <span>
+                    <i class="fas fa-user-circle"></i>
+                    {{ d.name }}</span>
+                  <br>
+                  <span>
+                    <i class="fas fa-mail-bulk"></i>
+                    {{ d.email }}</span>
+                </div>
+              </td>
+              <td >
+                <div class="card d-inline-block rounded-pill text-warning">
+                  <div class="card-body">
+                    {{ d.desc }}
+                  </div>
+                </div>
+              </td>
               <td>
                 <button class="btn btn-danger btn-sm rounded-circle" @click="del(d)">
                   <i class="fas fa-trash-alt"></i>

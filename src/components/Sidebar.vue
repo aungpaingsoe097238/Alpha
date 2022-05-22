@@ -3,7 +3,7 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12">
 
-        <div class="w-75 mx-auto">
+        <div class="mx-auto blog-header">
           <span class="blog-title p-3">
             <img src="../assets/alpha.png" style="max-width: 50px;" alt="">lpha</span>
         </div>
@@ -97,6 +97,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
+
+.blog-header{
+  width: 75%;
+}
+
+@media only screen and (max-width : 768px) {
+  .blog-header{
+    width: 100% !important;
+  }
+}
 </style>

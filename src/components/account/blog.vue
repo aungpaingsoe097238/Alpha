@@ -14,7 +14,7 @@
           </b-button>
         </div>
       </div>
-      <div class="card-body">
+      <div class="card-body overflow-auto">
         <table class="table align-middle table-responsive z-index-1000">
           <thead>
             <tr>
@@ -33,7 +33,7 @@
               <td>
                 <img
                   :src="d.image"
-                  class="memo-img shadow-sm rounded-2"
+                  class="memo-img shadow-sm rounded-2 gray-100 "
                   alt=""
                 />
               </td>
@@ -85,7 +85,7 @@
         </div>
         <div class="input-group mt-3 d-flex justify-content-center align-items-center ">
           <div class="upload-img-ui" v-if="previewImage === ''" @click="imageUploadUi">
-            <img src="../../assets/img/icons/image-default.png"  alt="">
+            <img src="../../assets/img/icons/image-default.png" class="gray-100" alt="">
           </div>
           <input type="file" id="imageUpload" @change="imageUpload" class="form-control d-none">
         </div>
@@ -287,6 +287,8 @@ export default {
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style >
+.gray-100{
+  filter: grayscale(100%) !important;
+}
 </style>

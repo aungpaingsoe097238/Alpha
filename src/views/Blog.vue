@@ -8,8 +8,8 @@
         </div>
       </div>
       <div class="row">
-        <!--        Blog Image -->
-        <div class="col-12 col-md-6" v-for="(b,index) in data" :key="index">
+        <!--Blog Image -->
+        <div class="col-12 col-md-12 col-lg-6" v-for="(b,index) in data" :key="index">
           <div class="grid d-flex flex-column">
             <figure class="effect-lily" >
               <img :src="b.image" alt="img12" />
@@ -20,15 +20,15 @@
               </figcaption>
             </figure>
             <div class="text-start p-3">
-              <span class="text-black-50 fw-bolder">
-                <i class="fas fa-calendar"></i>
+              <span class="text-black-50 " style="font-style: italic;font-size: 15px;">
+                <i class="fas fa-calendar-alt"></i>
               {{ b.date }}
               </span>
-              <div class="dropdown-divider montserrat-font" ></div>
-              <p class="text-black-50">
+              <div class="dropdown-divider montserrat-font"></div>
+              <p class="text-black-50" style="text-indent: 50px;text-align: justify ">
                 {{ resultListLimited(b.desc) }}
               </p>
-              <b-button variant="outline-dark"  @click="showDetail(b)">
+              <b-button variant="outline-dark" size="sm"  @click="showDetail(b)">
                 <span class="fw-bold">
                    read more
                 </span>
@@ -37,28 +37,33 @@
             </div>
           </div>
         </div>
-        <!--        Blog Image-->
+        <!--Blog Image-->
       </div>
     </div>
 
-    <b-modal id="modal-blog-detail" no-close-on-backdrop size="lg" scrollable hide-footer :title="detailData.title">
+    <b-modal id="modal-blog-detail"  centered no-close-on-backdrop size="lg" scrollable hide-footer title="">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            <i class="fas fa-calendar pe-2"></i>
-            <span class="fw-bolder">{{ detailData.date }}</span>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-12 col-md-12">
-            <img :src="detailData.image" class="img-fluid w-100 mt-3" alt="">
+            <img :src="detailData.image" class="img-fluid w-100 mt-3 card " style="filter: grayscale(100%)" alt="">
           </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
           <div class="col-12">
-            <p class="mt-3 "  style="text-indent: 50px;text-align: justify ">
+
+            <span class="text-black-50" >
+              <i class="fas fa-calendar-alt pe-2"></i>
+              <span style="font-style: italic;font-size: 15px">{{ detailData.date }}</span>
+            </span>
+
+            <div class="dropdown-divider"></div>
+
+            <h5 >{{ detailData.title }}</h5>
+
+            <p class="mt-3 text-black-50" style="text-indent: 50px;text-align: justify ">
               {{ detailData.desc }}
             </p>
+
           </div>
         </div>
       </div>
@@ -265,8 +270,6 @@ figure.effect-lily:hover h2,
 figure.effect-lily:hover p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
-  -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
-  filter: grayscale(0);
 }
 
 figure.effect-lily:hover p {

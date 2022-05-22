@@ -3,7 +3,7 @@
     <div class="container-fluid ">
       <div class="row ">
         <div class="col-12 ">
-          <div class="d-flex flex-column flex-md-row justify-content-around align-items-center ">
+          <div class="d-flex flex-column flex-md-column flex-lg-row justify-content-around align-items-center ">
             <div class="fr">
               <div class="home-img"></div>
             </div>
@@ -11,7 +11,7 @@
               <span class="home-name montserrat-font" >
                 Aung Paing Soe
               </span>
-              <p class="home-content text-black-50 montserrat-font mt-3">
+              <p class="home-content text-black-50 montserrat-font mt-3" style="text-align: justify ">
                 I'm a Full-stack Web Developer with over 2 years of professional experience in this field.
               </p>
               <div>
@@ -69,7 +69,7 @@ export default {
   }
 
   .home-name{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 800;
     text-transform: uppercase;
   }

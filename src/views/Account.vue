@@ -74,6 +74,9 @@ import Projects from "../components/account/projects.vue";
 .card{
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
+.gray-100{
+  filter: grayscale(100%) !important;
+}
 </style>
 
 

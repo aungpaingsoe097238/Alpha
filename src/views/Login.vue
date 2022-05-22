@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="d-flex justify-content-center align-items-center min-vh-100 fr">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-12 col-lg-6">
           <div>
             <span class="blog-title">
               Login to Admin Account
@@ -12,8 +12,8 @@
             </p>
           </div>
         </div>
-        <div class="col-12 col-md-6">
-          <div class="card ">
+        <div class="col-12 col-md-12 col-lg-6">
+          <div class="card">
             <div class="card-body">
               <form @submit.prevent="signIn()">
                 <div class="input-group">

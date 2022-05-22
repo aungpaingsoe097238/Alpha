@@ -1,23 +1,19 @@
 <template>
   <div class="d-md-flex my-5 my-md-0  min-vh-100 justify-content-center align-items-center fr">
-    <div class="container-fluid">
+    <div class="container-fluid my-5">
       <div class="row">
         <div class="col-12">
           <div class="header">
             <span class="blog-title-card">Skills</span> <br>
             <span class="blog-title">What is my knowledge?</span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Enim iure omnis optio veritatis
-              voluptatum! A ad beatae consequuntur
-              deserunt enim exercitationem facilis ipsa,
-              labore nemo nostrum omnis sint soluta, voluptatibus?
+            <p class="text-black-50">
+              Live as if you were to die tomorrow. Learn as if you were to live forever.
             </p>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-12 col-lg-6">
           <!--      Skills-->
           <h5 class="text-black-50 mt-2">Font End</h5>
           <div class="skills-bar">
@@ -64,7 +60,7 @@
           </div>
           <!--      Skills-->
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-12 col-lg-6">
           <!--      Skills-->
           <h5 class="text-black-50 mt-2 ">Back End</h5>
           <div class="skills-bar">
@@ -97,7 +93,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-12 col-lg-6">
           <!--      Skills-->
           <h5 class="text-black-50 mt-2 ">Other</h5>
           <div class="skills-bar">
@@ -136,7 +132,7 @@
           </div>
           <!--      Skills-->
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-12 col-lg-6">
           <!--      Skills-->
           <h5 class="text-black-50 mt-2 ">Languages</h5>
           <div class="skills-bar">

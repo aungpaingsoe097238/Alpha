@@ -1,12 +1,12 @@
 <template>
   <div class="d-flex justify-content-center align-items-center min-vh-100 my-5 my-md-0 fr">
-    <div class="container-fluid ">
+    <div class="container-fluid my-5">
       <div class="row">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-12 col-lg-8">
           <div class="">
             <span class="blog-title-card">About</span> <br>
             <span class="blog-title">Who am I?</span>
-            <p>
+            <p class="text-black-50" style="text-indent: 50px;text-align: justify ">
               Hi everyone.My name is Aung Paing Soe.I'm a Web Developer. I'm using the PHP &
               Laravel Framework for Back-End Developement. HTML,CSS,JavaScript,JQuery
               & Vue-js are using my Font-End Developement.
@@ -49,8 +49,8 @@
             </a>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <img src="../assets/img/Profile/about.jpg" class="img-fluid border-1 border-light rounded-3 mt-3 mt-md-0 gray-img" alt="">
+        <div class="col-12 col-md-12 col-lg-4">
+          <img src="../assets/img/Profile/about.jpg" class="img-fluid border-1  border-light rounded-3 mt-3 mt-md-3 mt-lg-3 gray-img" alt="">
         </div>
       </div>
     </div>

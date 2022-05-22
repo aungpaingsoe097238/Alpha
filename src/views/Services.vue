@@ -1,64 +1,27 @@
 <template>
-  <div class="d-md-flex my-5 my-md-0 min-vh-100 justify-content-center align-items-center fr">
-    <div class="container-fluid">
+  <div class="d-md-flex mt-5 my-5 my-md-0 min-vh-100 justify-content-center align-items-center fr">
+    <div class="container-fluid my-5">
       <div class="row">
         <div class="col-12">
           <span class="blog-title-card">Services</span> <br>
           <span class="blog-title">Quality Services</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eius, voluptatum. Aspernatur commodi ducimus explicabo facilis in minus nisi, nobis nulla numquam omnis quis quos recusandae reiciendis repellendus unde voluptatum.
-          </p>
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-12 col-lg-4 " v-for="d in data" :key="d.id">
           <div class="service-card mt-3">
-            <div class="">
+            <div class="" >
               <div class="service-img">
-                <img src="../assets/img/svg/webdasign.svg" alt="">
+                <img :src="d.img" alt="">
               </div>
-              <div class="pt-3">
+              <div class="pt-3" style="height: 150px;">
                 <span class="h5 fw-bold service-title">
-                  Web Desgin
+                  {{ d.title }}
                 </span>
                 <p class="text-black-50 service-content pt-3">
-                  Website တစ်ခု၏ အသွင်အပြင်ကို လှပစွာ ပုံဖော်နိုင်ခြင်း။
+                  {{ d.desc }}
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="service-card mt-3">
-            <div class="">
-              <div class="service-img">
-                <img src="../assets/img/svg/web.svg" alt="">
-              </div>
-              <div class="pt-3">
-                <span class="h5 fw-bold service-title">
-                  Web Apps
-                </span>
-                <p class="text-black-50 service-content pt-3">
-                  Api service နှင့် server side ကိုကောင်းမွန်စွာကိုင်တွယ်နိုင်ခြင်း။
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="service-card mt-3">
-            <div class="">
-              <div class="service-img">
-                <img src="../assets/img/svg/mobile.svg" alt="">
-              </div>
-              <div class="pt-3">
-                <span class="h5 fw-bold service-title">
-                  Responsive Ui/Ux
-                </span>
-                <p class="text-black-50 service-content pt-3">
-                  Media Query ကို ကောင်မွန်စွာရေးသားနိုင်ခြင်း။
-                </p>
-              </div>
+              </div >
             </div>
           </div>
         </div>
@@ -69,7 +32,28 @@
 
 <script>
 export default {
-  name: "Services"
+  name: "Services",
+  data() {
+    return {
+      data: [
+        {
+          'title' : 'Web Apps',
+          'desc'  : 'Api service နှင့် server side ကိုကောင်းမွန်စွာကိုင်တွယ်နိုင်ခြင်း။',
+          'img'   : require('../assets/img/svg/web.svg')
+        },
+        {
+          'title' : 'Web Design',
+          'desc'  : 'Web Design Patten ကိုကောင်းမွန်စွာရေးသားနိုင်ခြင်း။',
+          'img'   : require('../assets/img/svg/webdasign.svg')
+        },
+        {
+          'title' : 'Responsive Ui/Ux',
+          'desc'  : 'Media Query ကိုကောင်းမွန်စွာရေးသားနိုင်ခြင်း။',
+          'img'   : require('../assets/img/svg/mobile.svg')
+        }
+      ]
+    }
+  },
 }
 </script>
 

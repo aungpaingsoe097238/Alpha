@@ -9,8 +9,8 @@
       </div>
       <div class="row mt-3">
         <!--        Blog Image -->
-        <div class="col-12 col-md-4" v-for="(b,index) in data" :key="index">
-          <div class="grid d-flex flex-column" >
+        <div class="col-12 col-md-12 col-lg-4" v-for="(b,index) in data" :key="index">
+          <div class="grid d-flex flex-column mt-3" >
             <figure class="effect-lily" >
               <img :src="b.image" alt="img12" />
               <figcaption>
@@ -25,7 +25,7 @@
               </span>
               <div class="dropdown-divider montserrat-font" ></div>
               <p class="text-black-50">
-                {{ resultListLimited(b.desc) }}
+                {{ b.desc }}
               </p>
               <a :href="b.link" target="_blank" class="btn btn-outline-dark btn-sm" >
                 <span class="fw-bold">
@@ -73,9 +73,6 @@ export default {
       });
       this.data = data;
     },
-    resultListLimited(d){
-      return d.slice(0,20);
-    }
   },
 }
 </script>
@@ -217,8 +214,6 @@ figure.effect-lily:hover h2,
 figure.effect-lily:hover p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
-  -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
-  filter: grayscale(0);
 }
 
 figure.effect-lily:hover p {

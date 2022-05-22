@@ -5,14 +5,15 @@
         <div class="col-12 col-md-12">
           <span class="blog-title-card">Contact</span> <br>
           <span class="blog-title">Get in Touch</span>
-          <div class="mt-5">
+          <div class="mt-5" style="filter: grayscale(100%)">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4541.7623091517535!2d96.2851319961658!3d16.81883148218169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c18cd2e8e1f93d%3A0xa8feee28e69428d4!2z4YCA4YCv4YCc4YCs4YC44YCd4YCy!5e0!3m2!1sen!2smm!4v1652535047140!5m2!1sen!2smm"
                     width="100%"
                     height="450"
                     style="border:0;"
                     allowfullscreen=""
                     loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
+                    referrerpolicy="no-referrer-when-downgrade"
+                  >
             </iframe>
           </div>
         </div>

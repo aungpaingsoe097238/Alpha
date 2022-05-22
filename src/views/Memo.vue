@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12">
           <span class="blog-title-card">Memoary</span> <br>
-          <span class="blog-title">
+          <span class="blog-title" style="text-indent: 50px;text-align: justify ">
             History is become the life of a part
           </span>
         </div>
@@ -97,6 +97,7 @@ export default {
   background-position: center;
   background-size: auto 70%;
   background-color: black;
+  filter: grayscale(100%);
 }
 
 .view-btn{
@@ -125,6 +126,7 @@ export default {
 .gallery__content--flow {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -193,7 +195,6 @@ figure:hover img{
 }
 .title {
   color: #fff;
-
 }
 
 .title--primary {

@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid">
       <div class="row vh-100 justify-content-end ">
-        <div class="col-9 col-md-4 col-lg-3 z-index-1000 d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0 rounded-0 card"  :class="{ 'd-none': sidebar }" >
+        <div class="col-8 col-md-5 col-lg-4 z-index-1000 bg d-md-block animate__animated animate__slideInLeft position-fixed top-0 start-0 rounded-0"  :class="{ 'd-none': sidebar }" >
             <Sidebar></Sidebar>
         </div>
-        <div class="col-12 col-md-8 col-lg-9 bg">
+        <div class="col-12 col-md-7 col-lg-8 bg">
           <Content></Content>
         </div>
       </div>
@@ -98,6 +98,7 @@ export default {
     bottom: 50px;
     right: 50px;
     border-radius: 50%;
+    z-index: 2000;
     -webkit-box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);
     box-shadow: 7px 13px 49px -6px rgba(0, 0, 0, 0.75);

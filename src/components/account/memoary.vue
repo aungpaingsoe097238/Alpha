@@ -14,8 +14,8 @@
           </b-button>
         </div>
       </div>
-      <div class="card-body">
-        <table class="table align-middle table-responsive z-index-1000">
+      <div class="card-body overflow-auto">
+          <table class="table align-middle  z-index-1000">
           <thead>
             <tr>
               <th>#</th>
@@ -32,7 +32,7 @@
               <td>
                 <img
                   :src="memo.image"
-                  class="memo-img shadow-sm rounded-2"
+                  class="memo-img shadow-sm rounded-2 gray-100"
                   alt=""
                 />
               </td>
