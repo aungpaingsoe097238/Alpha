@@ -100,6 +100,7 @@ export default {
         this.Form.name = '';
         this.Form.email = '';
         this.Form.desc = '';
+        this.$swal("successfully contact message.");
       }
     }
   },
