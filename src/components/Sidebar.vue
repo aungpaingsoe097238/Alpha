@@ -12,7 +12,7 @@
 
 <!--        SideBar link-->
         <div class="mt-5">
-          <nav class="nav flex-column w-75 mx-auto">
+          <nav class="nav flex-column mx-auto">
             <router-link :to="{ name : 'home' }" class="nav-link nav-link-style">
               <img src="../assets/img/icons/home.png"  alt="">
               Home
@@ -47,7 +47,7 @@
             </router-link>
             <router-link :to="{ name : 'content' }" class="nav-link nav-link-style">
               <img src="../assets/img/icons/contact-book.png"  alt="">
-              Content
+              Contact
             </router-link>
             <div class="dropdown-divider"></div>
             <router-link v-if="is_user" to="#" class="nav-link nav-link-style">
@@ -59,12 +59,11 @@
             <div>
               <p class="text-black-50 mt-3 p-2"  style=" font-style :italic">
                 @2022
-                <span class="fw-bold">Alpha</span> 
-                <br> 
+                <span class="fw-bold">Alpha</span>
+                <br>
                 <span style=" font-size : 15px;">
-                Created by <span class=" text-decoration-underline">Aung Paing Soe</span> 
+                Created by <span class=" text-decoration-underline">Aung Paing Soe</span>
                 </span>
-                
               </p>
             </div>
           </nav>
@@ -101,12 +100,20 @@ export default {
 
 
 .blog-header{
-  width: 75%;
+  width: 50%;
+}
+
+.nav {
+  width: 50%;
 }
 
 @media only screen and (max-width : 768px) {
   .blog-header{
     width: 100% !important;
   }
+  .nav{
+    width: 100% !important;
+  }
+
 }
 </style>

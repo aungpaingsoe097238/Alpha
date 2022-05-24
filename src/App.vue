@@ -115,12 +115,6 @@ export default {
     background-color: var(--bg);
   }
 
-  .nav-link-style{
-    font-size: 15px;
-    color: var(--secondary) !important;
-    transition: 0.5s !important;
-  }
-
   .nav-link-style i{
     margin-right: 10px;
   }
@@ -137,10 +131,15 @@ export default {
     letter-spacing: 2px;
   }
 
-  .active{
+  .nav-link-style{
     font-size: 15px;
+    color: yellow !important; ;
+    transition: 0.25s !important;
+  }
+
+  .active{
     font-weight: bolder;
-    color: var(--dark) !important;
+    text-shadow: 0 0 black;
   }
 
   .gray-img{
@@ -154,6 +153,7 @@ export default {
     border: 1px solid var(--secondary);
     transition: 0.5s;
   }
+
   .service-card:hover{
     -webkit-box-shadow: 2px 6px 11px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 6px 11px -1px rgba(0,0,0,0.75);
@@ -233,9 +233,6 @@ export default {
       width: 100%;
     }
 
-    .nav{
-      width: 100% !important;
-    }
 
     .upload-img{
       width: 100%;

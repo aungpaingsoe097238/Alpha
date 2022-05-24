@@ -11,7 +11,7 @@
               <span class="home-name montserrat-font" >
                 Aung Paing Soe
               </span>
-              <p class="home-content text-black-50 montserrat-font mt-3" style="text-align: justify ">
+              <p class="home-content text-black-50 montserrat-font mt-3">
                 I'm a Full-stack Web Developer with over 2 years of professional experience in this field.
               </p>
               <div>
