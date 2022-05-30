@@ -14,7 +14,7 @@
               I'm 22 year old.
               I'm a Web Developer. I'm using the PHP &
               Laravel Framework for Back-End Developement. HTML,CSS,JavaScript,JQuery
-              & Vue-js are using my Font-End Developement.Currently,I working a remote job from 
+              & Vue-js are using my Front-End Developement.Currently,I working a remote job from 
               japan by junior web developer position.
             </p>
 
@@ -61,7 +61,7 @@
             </table>
           </div>
           <div>
-            <a class="btn btn-outline-dark rounded-3" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Fcv.pdf?alt=media&token=634a7b31-0c50-40fa-af37-8e2eb7d34774" download="alpha_cv.pdf">
+            <a class="btn btn-outline-dark rounded-3" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Fmy_cv.pdf?alt=media&token=fc008475-ed22-4602-a7cd-b6c0612c714f" download="alpha_cv.pdf">
               Download CV
               <i class="fas fa-file-pdf"></i>
             </a>
