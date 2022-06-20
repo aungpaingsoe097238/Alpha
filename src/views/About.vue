@@ -61,7 +61,9 @@
             </table>
           </div>
           <div>
-            <a class="btn btn-outline-dark rounded-3" target="_blank" href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Fmy_cv.pdf?alt=media&token=fc008475-ed22-4602-a7cd-b6c0612c714f" download="alpha_cv.pdf">
+            <a class="btn btn-outline-dark rounded-3" 
+            target="_blank" 
+            href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Faungpaignsoe_cv.pdf?alt=media&token=ee6b77a8-e908-49e2-8978-29b14eb1ea08" download="alpha_cv.pdf">
               Download CV
               <i class="fas fa-file-pdf"></i>
             </a>
