@@ -13,7 +13,7 @@
         <i class="fas fa-list-dots" v-if="sidebar"></i>
         <i class="fas fa-close" v-else></i>
       </div>
-<!--      end menu-->
+      <!-- end menu-->
     </div>
 </template>
 
