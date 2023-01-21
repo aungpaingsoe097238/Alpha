@@ -1,76 +1,70 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center min-vh-100 my-5 my-md-0 fr">
+  <div
+    class="d-flex justify-content-center align-items-center min-vh-100 my-5 my-md-0 fr"
+  >
     <div class="container-fluid my-5">
       <div class="row">
         <div class="col-12 col-md-12 col-lg-8">
           <div class="">
-            <span class="blog-title-card">About</span> <br>
+            <span class="blog-title-card">About</span> <br />
             <span class="blog-title">Who am I?</span>
-           
+
             <p class="text-black-50 mt-3">
-              <span style="font-size:15px; font-style:italic; font-weight:600; color: var(--dark)">By English</span>
-              -
-              Hi everyone.My name is Aung Paing Soe.
-              I'm 22 year old.
-              I'm a Web Developer. I'm using the PHP &
-              Laravel Framework for Back-End Developement. HTML,CSS,JavaScript,JQuery
-              & Vue-js are using my Front-End Developement.Currently,I working a remote job from 
-              japan by junior web developer position.
+              Hi everyone.My name is Aung Paing Soe. I'm 22 year old. I'm a
+              Full-Stack Web Developer. I'm using the PHP & Laravel Framework
+              for Back-End Developement. HTML,CSS,JavaScript,Vue and React are
+              using my Front-End Developement.Currently,I working a Full-Stack
+              Web Developer position in Marathon Myanamr Company.
             </p>
-
-            <p class="text-black-50">
-              <span style="font-size:15px; font-style:italic; font-weight:600; color: var(--dark)">By Myanmar</span>
-              -
-              အားလုံး မဂ်လာပါ။ကျွန်တော်ကတော့ အောင်ပိုင်စိုးဖြစ်တယ်။
-              အသက် ၂၂ ရှိပါပိ။
-              Web Developer တစ်ယောက်ဖြစ်ပါတယ်။
-              PHP နှင့် Laravel ကို Back-End Developement အတွက်အသုံးပြုပြီး HTML,CSS,JavaScript,JQuery, နှင့် Vue js 
-              ကို Font-End Developement အတွက်အသုံးပြုပါတယ်။
-              လက်ရှိမှာတော့ ဂျပန်နိုင်ငံမှ remote job တစ်ခုမှာ junior web developer ရာထူးနဲ့တာ၀န်ထန်းဆောင်နေပါတယ်။ 
-            </p>
-
           </div>
           <div>
             <table class="table table-responsive table-borderless">
               <tbody>
-              <tr>
-                <td class=" fw-bolder">Name:</td>
-                <td class="text-black-50 ">Aung Paing Soe</td>
-              </tr>
-              <tr>
-                <td class=" fw-bolder">Birthday:</td>
-                <td class="text-black-50 ">5 / March / 2000</td>
-              </tr>
-              <tr>
-                <td class=" fw-bolder">Age:</td>
-                <td class="text-black-50 ">22</td>
-              </tr>
-              <tr>
-                <td class=" fw-bolder">Address:</td>
-                <td class="text-black-50 ">Insein,Yangon,Myanmar</td>
-              </tr>
-              <tr>
-                <td class=" fw-bolder">Email:</td>
-                <td class="text-black-50 ">aungpaingsoe097238@gmail.com</td>
-              </tr>
-              <tr>
-                <td class=" fw-bolder">Phone:</td>
-                <td class="text-black-50 ">+95 960 187 283</td>
-              </tr>
+                <tr>
+                  <td class="fw-bolder">Name:</td>
+                  <td class="text-black-50">Aung Paing Soe</td>
+                </tr>
+                <tr>
+                  <td class="fw-bolder">Birthday:</td>
+                  <td class="text-black-50">5 / March / 2000</td>
+                </tr>
+                <tr>
+                  <td class="fw-bolder">Age:</td>
+                  <td class="text-black-50">22</td>
+                </tr>
+                <tr>
+                  <td class="fw-bolder">Address:</td>
+                  <td class="text-black-50">Insein,Yangon,Myanmar</td>
+                </tr>
+                <tr>
+                  <td class="fw-bolder">Email:</td>
+                  <td class="text-black-50">aungpaingsoe097238@gmail.com</td>
+                </tr>
+                <tr>
+                  <td class="fw-bolder">Phone:</td>
+                  <td class="text-black-50">+95 960 187 283</td>
+                </tr>
               </tbody>
             </table>
           </div>
           <div>
-            <a class="btn btn-outline-dark rounded-3" 
-            target="_blank" 
-            href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Faungpaignsoe_cv.pdf?alt=media&token=ee6b77a8-e908-49e2-8978-29b14eb1ea08" download="alpha_cv.pdf">
+            <a
+              class="btn btn-outline-dark rounded-3"
+              target="_blank"
+              href="https://firebasestorage.googleapis.com/v0/b/fir-vue-2b593.appspot.com/o/other%2Faungpaignsoe_cv.pdf?alt=media&token=ee6b77a8-e908-49e2-8978-29b14eb1ea08"
+              download="alpha_cv.pdf"
+            >
               Download CV
               <i class="fas fa-file-pdf"></i>
             </a>
           </div>
         </div>
         <div class="col-12 col-md-12 col-lg-4">
-          <img src="../assets/img/Profile/about.jpg" class="img-fluid border-1  border-light rounded-3 mt-3 mt-md-3 mt-lg-3 gray-img" alt="">
+          <img
+            src="../assets/img/Profile/about.jpg"
+            class="img-fluid border-1 border-light rounded-3 mt-3 mt-md-3 mt-lg-3 gray-img"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -80,9 +74,7 @@
 <script>
 export default {
   name: "About",
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

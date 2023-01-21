@@ -22,12 +22,12 @@
                     </a>
                   </li>
                   <li>
-                    <a href="https://github.com/ALPHA-DEV-MYANMAR" target="_blank">
+                    <a href="https://github.com/aungpaingsoe097238" target="_blank">
                       <img src="../assets/img/icons/github.png"  alt="">
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/aungpaingsoe532/" target="_blank">
+                    <a href="https://www.instagram.com/aung.p.soe.532/" target="_blank">
                       <img src="../assets/img/icons/instagram.png"  alt="">
                     </a>
                   </li>

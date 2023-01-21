@@ -3,7 +3,7 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12">
 
-        <div class="mx-auto blog-header">
+        <div class="mx-auto blog-header my-3">
           <span class="blog-title p-3">
             <img src="../assets/alpha.png" style="max-width: 50px;" alt="">lpha</span>
         </div>
