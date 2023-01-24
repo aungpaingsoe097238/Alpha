@@ -3,15 +3,6 @@ import { getFirestore , collection } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
-// const firebaseConfig = {
-//     apiKey: "AIzaSyBPREFjkRuqrOVfT3dAX5eX6VS1aDh0aVk",
-//     authDomain: "fir-vue-2b593.firebaseapp.com",
-//     projectId: "fir-vue-2b593",
-//     storageBucket: "fir-vue-2b593.appspot.com",
-//     messagingSenderId: "391307632049",
-//     appId: "1:391307632049:web:adaab34b6187ceedee7190"
-// };
-
 const firebaseConfig = {
     apiKey: "AIzaSyAWCfFV1wT4ghgBKy42MLx_SPBPXX4Rgug",
     authDomain: "portfolio-d2e2c.firebaseapp.com",
