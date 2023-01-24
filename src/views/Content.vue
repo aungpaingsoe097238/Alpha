@@ -50,7 +50,7 @@
                   id="floatingTextarea"
                   required
                 ></textarea>
-                <label for="floatingTextarea">Comments *</label>
+                <label for="floatingTextarea">Message *</label>
               </div>
               <div class="text-end">
                 <button class="btn btn-outline-dark btn-lg" :disabled="spinner">

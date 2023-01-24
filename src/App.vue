@@ -22,6 +22,7 @@
 <script>
 import Sidebar from "@/components/Sidebar";
 import Content from "@/components/Content";
+
 export default {
   components: {Content, Sidebar},
   data() {

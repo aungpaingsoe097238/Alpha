@@ -33,10 +33,8 @@
                 </div>
               </td>
               <td >
-                <div class="card d-inline-block rounded-pill text-warning">
-                  <div class="card-body">
+                <div class="d-inline-block">
                     {{ d.desc }}
-                  </div>
                 </div>
               </td>
               <td>
@@ -77,7 +75,6 @@ export default {
         data.push(Data);
       });
       this.data = data;
-      console.log(this.data)
     },
     async del(d) {
       let text = "Are you sure , you want to delete.";

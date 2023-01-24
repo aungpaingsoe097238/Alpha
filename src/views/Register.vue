@@ -8,12 +8,18 @@
               Register new Account
             </span>
            <p class="fw-bolder mt-3">
-              Admin အသစ်ထက်ထည့်ရန်။ Current Admin သာလုပ်နိုင်သည်။
+            This is only for admin
            </p>
          </div>
        </div>
        <div class="col-12 col-md-6">
          <div class="card">
+          <div class="card-header bg-white">
+              <div class=" d-flex justify-content-center align-item-center gap-2 h4 py-2" >
+                <span><i class="bi bi-person-circle mb-0"></i></span>
+                <span class="mb-0">Account</span> 
+              </div>
+            </div>
            <div class="card-body">
              <form @submit.prevent="signUp()">
                <div class="input-group">

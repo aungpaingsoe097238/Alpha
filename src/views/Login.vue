@@ -7,13 +7,19 @@
             <span class="blog-title">
               Login to Admin Account
             </span>
-            <p class="fw-bolder mt-3">
-              admin သာလျှင် login ၀င်ခွင့်ရှိသည်။
+            <p class="fw-bolder mt-3 text-black-50">
+              This is only for admin
             </p>
           </div>
         </div>
         <div class="col-12 col-md-12 col-lg-6">
           <div class="card">
+            <div class="card-header bg-white">
+              <div class=" d-flex justify-content-center align-item-center gap-2 h4 py-2" >
+                <span><i class="bi bi-person-circle mb-0"></i></span>
+                <span class="mb-0">Account</span> 
+              </div>
+            </div>
             <div class="card-body">
               <form @submit.prevent="signIn()">
                 <div class="input-group">

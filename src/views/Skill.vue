@@ -57,6 +57,14 @@
                 <span class="vue" ></span>
               </div>
             </div>
+            <div class="bar">
+              <div class="info">
+                <span>React Js</span>
+              </div>
+              <div class="progress-line">
+                <span class="react" ></span>
+              </div>
+            </div>
           </div>
           <!--      Skills-->
         </div>
@@ -231,6 +239,10 @@ export default {
   width: 96%;
 }
 
+.progress-line .react {
+  width: 86%;
+}
+
 .progress-line .php {
   width: 60%;
 }
@@ -282,6 +294,11 @@ export default {
 .progress-line .vue::after {
   content: "96%";
 }
+
+.progress-line .react::after {
+  content: "86%";
+}
+
 .progress-line .php::after{
   content: "60%";
 }
