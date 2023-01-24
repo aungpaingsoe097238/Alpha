@@ -179,10 +179,10 @@ export default {
                     .then((downloadURL) => {
                       this.Form.image = downloadURL;
                       if (this.is_edit === true) {
-                        this.updateToFb();
+                        this.updateToFb(downloadURL);
                       }
                       else {
-                        this.uploadToFb();
+                        this.uploadToFb(downloadURL);
                       }
                     });
               });
@@ -218,20 +218,23 @@ export default {
             update(){
               this.formatImage();
             },
-            async updateToFb(){
-              const ColRef = collection(db, "blog");
-              let Ref = doc(ColRef, this.Form.id);
-              const updateDoc = await setDoc(Ref, {
+
+            async updateToFb() {
+            const ColRef = collection(db, "blog");
+            let blogRef = doc(ColRef, this.Form.id);
+            const updateDoc = await setDoc(blogRef, {
                 "title": this.Form.title,
-                "desc": this.Form.desc,
+                'desc' : this.Form.desc,
                 "image": this.Form.image,
                 "date": this.Form.date
               }).then(el => {
-                this.$bvModal.hide("modal-blog");
-                this.getData();
-                this.spinner = false;
-              });
+                  this.$bvModal.hide("modal-blog");
+                  this.getData();
+              }).finally(() => {
+                  this.spinner = false;
+              })
             },
+
             async del(d) {
               let text = "Are you sure , you want to delete.";
               if (window.confirm(text) == true) {
