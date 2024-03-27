@@ -1,19 +1,37 @@
-# profile
 
-## Project setup
-```
-npm install
-```
+# Alpha Portfolio 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Demo Link
 
-### Compiles and minifies for production
-```
-npm run build
-```
+https://alpha-rmhs.vercel.app/
+## Features
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- About Me
+- My Skill Set
+- Services
+- Projects
+- Memoary
+- Contact 
+- Authentication
+- Projects CRUD
+- Memoary CRUD
+
+
+
+
+## Tech Stack
+
+**Client:** Vue, VueBootstrap, Firebase
+
+
+
+
+## Installation
+
+Install with npm
+
+```bash
+  npm install 
+  npm run serve
+```
+    
